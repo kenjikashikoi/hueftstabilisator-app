@@ -5,98 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hüftstabilisator Trainingsplan</title>
 <style>
-  /* Grundlayout */
   body {
-    font-family: 'Noto Sans JP', sans-serif; /* Japanisch inspiriert */
-    background: #fff8f0; /* sanfter Pastell-Hintergrund */
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
     margin: 0;
-    padding: 10px;
-    color: #333;
+    padding: 20px;
   }
 
   h1 {
     text-align: center;
-    color: #d43f3a; /* dezente rote Akzentfarbe */
-    font-weight: 700;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    color: #2c3e50;
   }
 
-  /* Phase */
   .phase {
-    background: #ffe0d5; /* zartes Korallen-Pastell */
-    color: #d43f3a;
-    margin: 8px 0;
-    padding: 12px 15px;
-    border-radius: 12px;
+    background: #3498db;
+    color: white;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-    transition: background 0.3s, transform 0.2s;
   }
 
   .phase:hover {
-    background: #ffbfa6;
-    transform: scale(1.02);
+    background: #2980b9;
   }
 
-  /* Übungen */
   .exercises {
     display: none;
-    margin: 5px 0 15px 5px;
+    margin: 5px 0 15px 15px;
+    padding-left: 10px;
   }
 
   .exercise {
-    background: #fff5f0;
+    background: #ecf0f1;
     margin: 5px 0;
-    padding: 10px 12px;
-    border-left: 4px solid #d43f3a;
-    border-radius: 8px;
+    padding: 8px 10px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s, transform 0.2s;
   }
 
   .exercise:hover {
-    background: #ffe6dd;
-    transform: scale(1.01);
+    background: #d0d7de;
   }
 
   .details {
     display: none;
-    padding: 8px 12px;
-    background: #fde8e3;
-    border-radius: 6px;
-    margin-top: 4px;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    padding: 5px 10px;
+    background: #bdc3c7;
+    border-radius: 5px;
+    margin-top: 3px;
   }
 
   .sets {
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: #b23a33;
-  }
-
-  /* Mobile Optimierung */
-  @media (max-width: 480px) {
-    body {
-      padding: 8px;
-    }
-
-    .phase {
-      font-size: 1rem;
-      padding: 10px 12px;
-    }
-
-    .exercise {
-      font-size: 0.95rem;
-      padding: 8px 10px;
-    }
-
-    .details {
-      font-size: 0.9rem;
-    }
+    font-weight: bold;
+    margin-bottom: 5px;
   }
 </style>
 </head>
@@ -104,7 +66,6 @@
 
 <h1>Hüftstabilisator Trainingsplan</h1>
 
-<!-- Phase 1 -->
 <div class="phase" onclick="togglePhase('phase1')">Phase 1 – Grundlagen & Aktivierung (Wochen 1–4)</div>
 <div id="phase1" class="exercises">
   <div class="exercise" onclick="toggleExercise('p1e1')">
@@ -117,10 +78,46 @@
       Atmung: Ausheben ausatmen, Absenken einatmen.
     </div>
   </div>
-  <!-- weitere Übungen Phase 1 hier... -->
+
+  <div class="exercise" onclick="toggleExercise('p1e2')">
+    Glute Bridge
+    <div class="sets">2–3 × 12–15</div>
+    <div id="p1e2" class="details">
+      Ausgangsposition: Rückenlage, Füße hüftbreit, Knie gebeugt.<br>
+      Bewegung: Becken langsam anheben, Po anspannen, Linie Schulter-Knie.<br>
+      Tipps: Bauch leicht aktivieren, Rücken nicht ins Hohlkreuz fallen lassen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p1e3')">
+    Mini-Band Walks
+    <div class="sets">2 × 10–15 Schritte pro Richtung</div>
+    <div id="p1e3" class="details">
+      Ausgangsposition: Band um Oberschenkel, Knie leicht gebeugt.<br>
+      Bewegung: Seitwärts gehen, Kontrolle halten.<br>
+      Tipps: Kein Ziehen ins Knie, Po aktiv, kleine Schritte.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p1e4')">
+    Einbeinstand
+    <div class="sets">2 × 20–30 Sekunden</div>
+    <div id="p1e4" class="details">
+      Ausgangsposition: Auf einem Bein stehen, Hüfte gerade.<br>
+      Tipps: Bauch aktiv, leichte Wackler ok, Hüfte nicht kippen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p1e5')">
+    Hüftmobilisation
+    <div class="sets">2–3 × 10</div>
+    <div id="p1e5" class="details">
+      Bewegung: Bein pendeln, Hüftkreise.<br>
+      Tipps: Locker bewegen, keine Schmerzen erzwingen.
+    </div>
+  </div>
 </div>
 
-<!-- Phase 2 -->
 <div class="phase" onclick="togglePhase('phase2')">Phase 2 – Aufbau & Stabilität (Wochen 5–8)</div>
 <div id="phase2" class="exercises">
   <div class="exercise" onclick="toggleExercise('p2e1')">
@@ -132,9 +129,44 @@
       Tipps: Hüfte stabil, kontrolliert bewegen.
     </div>
   </div>
+
+  <div class="exercise" onclick="toggleExercise('p2e2')">
+    Glute Bridge auf einem Bein
+    <div class="sets">3 × 8–10 pro Seite</div>
+    <div id="p2e2" class="details">
+      Bewegung: Becken langsam anheben, ein Bein gestreckt.<br>
+      Tipps: Becken kippt nicht, Po bewusst anspannen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p2e3')">
+    Step-Ups (kleine Stufe)
+    <div class="sets">3 × 10–12 pro Bein</div>
+    <div id="p2e3" class="details">
+      Bewegung: Langsam hochdrücken, Oberkörper gerade.<br>
+      Tipps: Knie nicht nach innen kippen, Hüfte stabil.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p2e4')">
+    Einbeinstand auf Kissen
+    <div class="sets">3 × 20–30 Sekunden</div>
+    <div id="p2e4" class="details">
+      Tipps: Hüfte stabil, leichte Wackler ok, keine Schmerzen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p2e5')">
+    Clamshells
+    <div class="sets">3 × 12–15</div>
+    <div id="p2e5" class="details">
+      Ausgangsposition: Seitlage, Knie 90°, Band um Oberschenkel.<br>
+      Bewegung: Oberes Knie langsam öffnen und schließen.<br>
+      Tipps: Becken stabil halten, Rücken gerade.
+    </div>
+  </div>
 </div>
 
-<!-- Phase 3 -->
 <div class="phase" onclick="togglePhase('phase3')">Phase 3 – Kraft & Funktion (Wochen 9–16)</div>
 <div id="phase3" class="exercises">
   <div class="exercise" onclick="toggleExercise('p3e1')">
@@ -146,9 +178,42 @@
       Tipps: Knie nicht über Fußlinie, Hüfte stabil.
     </div>
   </div>
+
+  <div class="exercise" onclick="toggleExercise('p3e2')">
+    Seitliche Step-Ups
+    <div class="sets">3 × 10–12 pro Seite</div>
+    <div id="p3e2" class="details">
+      Bewegung: Seitlich auf Stufe steigen, Hüfte bewusst anspannen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p3e3')">
+    Glute Bridge mit Gewicht
+    <div class="sets">3 × 10–12</div>
+    <div id="p3e3" class="details">
+      Hantel auf Hüfte, Bewegung wie Bridge.<br>
+      Tipps: Becken stabil, Hüfte nicht durchdrücken.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p3e4')">
+    Monster Walks
+    <div class="sets">2 × 10 Schritte vor/10 zurück</div>
+    <div id="p3e4" class="details">
+      Band um Oberschenkel, Schritt diagonal vorwärts + zurück.<br>
+      Tipps: Kontrolle, Gesäß aktiv, Hüfte nicht kippen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p3e5')">
+    Einbeinstand mit Augen geschlossen
+    <div class="sets">3 × 20 Sekunden</div>
+    <div id="p3e5" class="details">
+      Steigerung aus Phase 2, Balance intensivieren.
+    </div>
+  </div>
 </div>
 
-<!-- Phase 4 -->
 <div class="phase" onclick="togglePhase('phase4')">Phase 4 – Maximale Stabilität & Sportvorbereitung (Wochen 17–24)</div>
 <div id="phase4" class="exercises">
   <div class="exercise" onclick="toggleExercise('p4e1')">
@@ -158,17 +223,57 @@
       Knie leicht beugen auf einem Bein, Hüfte stabil, Oberkörper gerade.
     </div>
   </div>
+
+  <div class="exercise" onclick="toggleExercise('p4e2')">
+    Step-Ups mit Gewicht
+    <div class="sets">3 × 10 pro Bein</div>
+    <div id="p4e2" class="details">
+      Bewegung wie Phase 3, Hantel/Handgewicht halten.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p4e3')">
+    Glute Bridge mit Gewicht + Pause
+    <div class="sets">3 × 8–10</div>
+    <div id="p4e3" class="details">
+      Hantel auf Hüfte, oben 2–3 Sekunden halten.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p4e4')">
+    Dynamische Balanceübungen
+    <div class="sets">2 × 10–15</div>
+    <div id="p4e4" class="details">
+      Bosu-Ball, instabiler Untergrund, leichte Bewegungen.
+    </div>
+  </div>
+
+  <div class="exercise" onclick="toggleExercise('p4e5')">
+    Plyometrische Übungen
+    <div class="sets">2 × 6–8</div>
+    <div id="p4e5" class="details">
+      Kleine Sprünge, Richtungswechsel, nur schmerzfrei, Hüftkontrolle konstant.
+    </div>
+  </div>
 </div>
 
 <script>
 function togglePhase(id) {
   const phase = document.getElementById(id);
-  phase.style.display = (phase.style.display === "block") ? "none" : "block";
+  if (phase.style.display === "block") {
+    phase.style.display = "none";
+  } else {
+    phase.style.display = "block";
+  }
 }
 
 function toggleExercise(id) {
   const exercise = document.getElementById(id);
-  exercise.style.display = (exercise.style.display === "block") ? "none" : "block";
+  if (exercise.style.display === "block") {
+    exercise.style.display = "none";
+  } else {
+    exercise.style.display = "block";
+  }
 }
 </script>
 
