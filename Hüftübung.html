@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hüftstabilisator Trainingsplan</title>
+<style>
+  /* Grundlayout */
+  body {
+    font-family: 'Noto Sans JP', sans-serif; /* Japanisch inspiriert */
+    background: #fff8f0; /* sanfter Pastell-Hintergrund */
+    margin: 0;
+    padding: 10px;
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    color: #d43f3a; /* dezente rote Akzentfarbe */
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  /* Phase */
+  .phase {
+    background: #ffe0d5; /* zartes Korallen-Pastell */
+    color: #d43f3a;
+    margin: 8px 0;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .phase:hover {
+    background: #ffbfa6;
+    transform: scale(1.02);
+  }
+
+  /* Übungen */
+  .exercises {
+    display: none;
+    margin: 5px 0 15px 5px;
+  }
+
+  .exercise {
+    background: #fff5f0;
+    margin: 5px 0;
+    padding: 10px 12px;
+    border-left: 4px solid #d43f3a;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .exercise:hover {
+    background: #ffe6dd;
+    transform: scale(1.01);
+  }
+
+  .details {
+    display: none;
+    padding: 8px 12px;
+    background: #fde8e3;
+    border-radius: 6px;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .sets {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #b23a33;
+  }
+
+  /* Mobile Optimierung */
+  @media (max-width: 480px) {
+    body {
+      padding: 8px;
+    }
+
+    .phase {
+      font-size: 1rem;
+      padding: 10px 12px;
+    }
+
+    .exercise {
+      font-size: 0.95rem;
+      padding: 8px 10px;
+    }
+
+    .details {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Hüftstabilisator Trainingsplan</h1>
+
+<!-- Phase 1 -->
+<div class="phase" onclick="togglePhase('phase1')">Phase 1 – Grundlagen & Aktivierung (Wochen 1–4)</div>
+<div id="phase1" class="exercises">
+  <div class="exercise" onclick="toggleExercise('p1e1')">
+    Seitliches Beinheben
+    <div class="sets">2–3 × 10–15 pro Seite</div>
+    <div id="p1e1" class="details">
+      Ausgangsposition: Seitlage, unteres Bein leicht gebeugt, oberes Bein gestreckt.<br>
+      Bewegung: Oberes Bein langsam 15–20 cm heben, langsam absenken.<br>
+      Tipps: Hüfte stabil, Rücken gerade, Bewegung aus der Hüfte.<br>
+      Atmung: Ausheben ausatmen, Absenken einatmen.
+    </div>
+  </div>
+  <!-- weitere Übungen Phase 1 hier... -->
+</div>
+
+<!-- Phase 2 -->
+<div class="phase" onclick="togglePhase('phase2')">Phase 2 – Aufbau & Stabilität (Wochen 5–8)</div>
+<div id="phase2" class="exercises">
+  <div class="exercise" onclick="toggleExercise('p2e1')">
+    Side-Lying Hip Abduction mit Mini-Band
+    <div class="sets">3 × 12–15</div>
+    <div id="p2e1" class="details">
+      Ausgangsposition: Seitlage, Band um Oberschenkel.<br>
+      Bewegung: Bein langsam heben und senken.<br>
+      Tipps: Hüfte stabil, kontrolliert bewegen.
+    </div>
+  </div>
+</div>
+
+<!-- Phase 3 -->
+<div class="phase" onclick="togglePhase('phase3')">Phase 3 – Kraft & Funktion (Wochen 9–16)</div>
+<div id="phase3" class="exercises">
+  <div class="exercise" onclick="toggleExercise('p3e1')">
+    Bulgarian Split Squat
+    <div class="sets">3 × 8–10 pro Bein</div>
+    <div id="p3e1" class="details">
+      Ein Bein hinten auf Stufe, vorderes Bein belastet Boden.<br>
+      Bewegung: Knie vorne beugen, Oberkörper gerade.<br>
+      Tipps: Knie nicht über Fußlinie, Hüfte stabil.
+    </div>
+  </div>
+</div>
+
+<!-- Phase 4 -->
+<div class="phase" onclick="togglePhase('phase4')">Phase 4 – Maximale Stabilität & Sportvorbereitung (Wochen 17–24)</div>
+<div id="phase4" class="exercises">
+  <div class="exercise" onclick="toggleExercise('p4e1')">
+    Einbein-Kniebeugen (Teilbewegung)
+    <div class="sets">3 × 8–10</div>
+    <div id="p4e1" class="details">
+      Knie leicht beugen auf einem Bein, Hüfte stabil, Oberkörper gerade.
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePhase(id) {
+  const phase = document.getElementById(id);
+  phase.style.display = (phase.style.display === "block") ? "none" : "block";
+}
+
+function toggleExercise(id) {
+  const exercise = document.getElementById(id);
+  exercise.style.display = (exercise.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
