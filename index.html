@@ -3,222 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hüftstabilisator Trainingsplan</title>
-
-<!-- Stylesheet -->
+<title>Hüfte & Sprungkraft</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- Favicon / App-Icon -->
-<link rel="icon" href="favicon.png" type="image/png">
-
-<!-- Für Home-Bildschirm Web-App -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Hüftplan">
-<meta name="application-name" content="Hüftplan">
-
 </head>
+
 <body>
 
-<h1>Hüftstabilisator Trainingsplan</h1>
+<h1>Hüfte + Sprungkraft</h1>
 
-<!-- Phase 1 -->
-<div class="phase" onclick="togglePhase('phase1')">Phase 1 – Grundlagen & Aktivierung (Wochen 1–4)</div>
-<div id="phase1" class="exercises">
-  <div class="exercise" onclick="toggleExercise('p1e1')">
-    Seitliches Beinheben
-    <div class="sets">2–3 × 10–15 pro Seite</div>
-    <div id="p1e1" class="details">
-      Ausgangsposition: Seitlage, unteres Bein leicht gebeugt, oberes Bein gestreckt.<br>
-      Bewegung: Oberes Bein langsam 15–20 cm heben, langsam absenken.<br>
-      Tipps: Hüfte stabil, Rücken gerade, Bewegung aus der Hüfte.<br>
-      Atmung: Ausheben ausatmen, Absenken einatmen.
-    </div>
-  </div>
+<div id="week" class="week"></div>
 
-  <div class="exercise" onclick="toggleExercise('p1e2')">
-    Glute Bridge
-    <div class="sets">2–3 × 12–15</div>
-    <div id="p1e2" class="details">
-      Ausgangsposition: Rückenlage, Füße hüftbreit, Knie gebeugt.<br>
-      Bewegung: Becken langsam anheben, Po anspannen, Linie Schulter-Knie.<br>
-      Tipps: Bauch leicht aktivieren, Rücken nicht ins Hohlkreuz fallen lassen.
-    </div>
-  </div>
+<div class="progressbar">
+<div id="progress" class="progress"></div>
+</div>
+<p id="progtext"></p>
 
-  <div class="exercise" onclick="toggleExercise('p1e3')">
-    Mini-Band Walks
-    <div class="sets">2 × 10–15 Schritte pro Richtung</div>
-    <div id="p1e3" class="details">
-      Ausgangsposition: Band um Oberschenkel, Knie leicht gebeugt.<br>
-      Bewegung: Seitwärts gehen, Kontrolle halten.<br>
-      Tipps: Kein Ziehen ins Knie, Po aktiv, kleine Schritte.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p1e4')">
-    Einbeinstand
-    <div class="sets">2 × 20–30 Sekunden</div>
-    <div id="p1e4" class="details">
-      Ausgangsposition: Auf einem Bein stehen, Hüfte gerade.<br>
-      Tipps: Bauch aktiv, leichte Wackler ok, Hüfte nicht kippen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p1e5')">
-    Hüftmobilisation
-    <div class="sets">2–3 × 10</div>
-    <div id="p1e5" class="details">
-      Bewegung: Bein pendeln, Hüftkreise.<br>
-      Tipps: Locker bewegen, keine Schmerzen erzwingen.
-    </div>
-  </div>
+<div class="buttons">
+<button onclick="showPlan('A')">Einheit A – Hüfte</button>
+<button onclick="showPlan('B')">Einheit B – Sprungkraft</button>
+<button onclick="showPlan('R')">Regeneration</button>
+<button onclick="resetAll()">Reset</button>
 </div>
 
-<!-- Phase 2 -->
-<div class="phase" onclick="togglePhase('phase2')">Phase 2 – Aufbau & Stabilität (Wochen 5–8)</div>
-<div id="phase2" class="exercises">
-  <div class="exercise" onclick="toggleExercise('p2e1')">
-    Side-Lying Hip Abduction mit Mini-Band
-    <div class="sets">3 × 12–15</div>
-    <div id="p2e1" class="details">
-      Ausgangsposition: Seitlage, Band um Oberschenkel.<br>
-      Bewegung: Bein langsam heben und senken.<br>
-      Tipps: Hüfte stabil, kontrolliert bewegen.
-    </div>
-  </div>
+<div id="content"></div>
 
-  <div class="exercise" onclick="toggleExercise('p2e2')">
-    Glute Bridge auf einem Bein
-    <div class="sets">3 × 8–10 pro Seite</div>
-    <div id="p2e2" class="details">
-      Bewegung: Becken langsam anheben, ein Bein gestreckt.<br>
-      Tipps: Becken kippt nicht, Po bewusst anspannen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p2e3')">
-    Step-Ups (kleine Stufe)
-    <div class="sets">3 × 10–12 pro Bein</div>
-    <div id="p2e3" class="details">
-      Bewegung: Langsam hochdrücken, Oberkörper gerade.<br>
-      Tipps: Knie nicht nach innen kippen, Hüfte stabil.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p2e4')">
-    Einbeinstand auf Kissen
-    <div class="sets">3 × 20–30 Sekunden</div>
-    <div id="p2e4" class="details">
-      Tipps: Hüfte stabil, leichte Wackler ok, keine Schmerzen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p2e5')">
-    Clamshells
-    <div class="sets">3 × 12–15</div>
-    <div id="p2e5" class="details">
-      Ausgangsposition: Seitlage, Knie 90°, Band um Oberschenkel.<br>
-      Bewegung: Oberes Knie langsam öffnen und schließen.<br>
-      Tipps: Becken stabil halten, Rücken gerade.
-    </div>
-  </div>
-</div>
-
-<!-- Phase 3 -->
-<div class="phase" onclick="togglePhase('phase3')">Phase 3 – Kraft & Funktion (Wochen 9–16)</div>
-<div id="phase3" class="exercises">
-  <div class="exercise" onclick="toggleExercise('p3e1')">
-    Bulgarian Split Squat
-    <div class="sets">3 × 8–10 pro Bein</div>
-    <div id="p3e1" class="details">
-      Ein Bein hinten auf Stufe, vorderes Bein belastet Boden.<br>
-      Bewegung: Knie vorne beugen, Oberkörper gerade.<br>
-      Tipps: Knie nicht über Fußlinie, Hüfte stabil.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p3e2')">
-    Seitliche Step-Ups
-    <div class="sets">3 × 10–12 pro Seite</div>
-    <div id="p3e2" class="details">
-      Bewegung: Seitlich auf Stufe steigen, Hüfte bewusst anspannen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p3e3')">
-    Glute Bridge mit Gewicht
-    <div class="sets">3 × 10–12</div>
-    <div id="p3e3" class="details">
-      Hantel auf Hüfte, Bewegung wie Bridge.<br>
-      Tipps: Becken stabil, Hüfte nicht durchdrücken.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p3e4')">
-    Monster Walks
-    <div class="sets">2 × 10 Schritte vor/10 zurück</div>
-    <div id="p3e4" class="details">
-      Band um Oberschenkel, Schritt diagonal vorwärts + zurück.<br>
-      Tipps: Kontrolle, Gesäß aktiv, Hüfte nicht kippen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p3e5')">
-    Einbeinstand mit Augen geschlossen
-    <div class="sets">3 × 20 Sekunden</div>
-    <div id="p3e5" class="details">
-      Steigerung aus Phase 2, Balance intensivieren.
-    </div>
-  </div>
-</div>
-
-<!-- Phase 4 -->
-<div class="phase" onclick="togglePhase('phase4')">Phase 4 – Maximale Stabilität & Sportvorbereitung (Wochen 17–24)</div>
-<div id="phase4" class="exercises">
-  <div class="exercise" onclick="toggleExercise('p4e1')">
-    Einbein-Kniebeugen (Teilbewegung)
-    <div class="sets">3 × 8–10</div>
-    <div id="p4e1" class="details">
-      Knie leicht beugen auf einem Bein, Hüfte stabil, Oberkörper gerade.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p4e2')">
-    Step-Ups mit Gewicht
-    <div class="sets">3 × 10 pro Bein</div>
-    <div id="p4e2" class="details">
-      Bewegung wie Phase 3, Hantel/Handgewicht halten.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p4e3')">
-    Glute Bridge mit Gewicht + Pause
-    <div class="sets">3 × 8–10</div>
-    <div id="p4e3" class="details">
-      Hantel auf Hüfte, oben 2–3 Sekunden halten.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p4e4')">
-    Dynamische Balanceübungen
-    <div class="sets">2 × 10–15</div>
-    <div id="p4e4" class="details">
-      Bosu-Ball, instabiler Untergrund, leichte Bewegungen.
-    </div>
-  </div>
-
-  <div class="exercise" onclick="toggleExercise('p4e5')">
-    Plyometrische Übungen
-    <div class="sets">2 × 6–8</div>
-    <div id="p4e5" class="details">
-      Kleine Sprünge, Richtungswechsel, nur schmerzfrei, Hüftkontrolle konstant.
-    </div>
-  </div>
-</div>
-
-<!-- Script -->
 <script src="script.js"></script>
-
 </body>
 </html>
