@@ -1,48 +1,49 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 20px;
+    background: #0f0f0f;
+    color: #eee;
+    padding: 15px;
 }
 
 h1 {
     text-align: center;
+    color: #6cffb0;
 }
 
 .day {
-    background: white;
+    border: 1px solid #333;
     border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 12px;
 }
 
 .day h2 {
+    cursor: pointer;
     margin: 0;
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
-}
-
-.content {
-    display: none;
-    margin-top: 10px;
 }
 
 .section {
-    margin-bottom: 10px;
+    margin-top: 8px;
 }
 
 .toggle {
     cursor: pointer;
-    font-weight: bold;
+    padding: 6px;
+    background: #1a1a1a;
+    border-radius: 4px;
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
 }
 
 .inner {
     display: none;
-    margin-top: 5px;
-    padding-left: 10px;
+    padding: 8px;
+    background: #151515;
+    border-radius: 4px;
+    margin-top: 4px;
     font-size: 0.95em;
 }
 
