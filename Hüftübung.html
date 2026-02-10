@@ -2,79 +2,17 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Hüfte & Sprungkraft – 3 Wochen</title>
-<style>
-body { font-family: Arial; background:#111; color:#eee; padding:20px; }
-h1,h2 { color:#6cffb0; }
-button { padding:10px; margin:5px 0; width:100%; font-size:16px; }
-.card { border:1px solid #333; padding:10px; margin:10px 0; }
-.done { opacity:0.4; text-decoration:line-through; }
-.timer { font-size:24px; margin:10px 0; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tagesdetails</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Hüfte + Sprungkraft</h1>
+<a href="index.html" class="back">← Zurück</a>
 
-<button onclick="show('A')">Einheit A – Hüfte</button>
-<button onclick="show('B')">Einheit B – Sprungkraft</button>
-<button onclick="show('R')">Regeneration</button>
+<div id="detail"></div>
 
-<div id="content"></div>
-
-<script>
-const plans = {
-A:[
-"Isometrische Außenrotation – 4×45s rechts",
-"Side-lying Hip Abduction – 3×12–15 rechts",
-"Single-Leg Squat – 3×6–8 rechts",
-"Lateral Step-Down – 2–3×8 rechts",
-"Single-Leg RDL – 3×6–8 rechts"
-],
-B:[
-"Pogo Jumps – 20s",
-"Step-Up Jumps – 6–8 / Seite",
-"Skater Hops – 6–8 / Seite",
-"Countermovement Jumps – 4–6"
-],
-R:[
-"Isometrische Außenrotation – 2×45s",
-"Einbeinstand – 2×30s",
-"Aktive 90/90 – 2 Min",
-"Optionale Massage – 3 Min"
-]
-};
-
-function show(type){
-let html="<h2>"+(type=="A"?"Einheit A":type=="B"?"Einheit B":"Regeneration")+"</h2>";
-plans[type].forEach((e,i)=>{
-html+=`<div class="card">
-<input type="checkbox" onchange="this.parentNode.classList.toggle('done')"> ${e}
-</div>`;
-});
-html+=`
-<div class="timer" id="timer">45</div>
-<button onclick="start()">45s Timer starten</button>
-<button onclick="reset()">Reset</button>`;
-document.getElementById("content").innerHTML=html;
-}
-
-let t,sec=45;
-function start(){
-clearInterval(t);
-sec=45;
-document.getElementById("timer").innerText=sec;
-t=setInterval(()=>{
-sec--;
-document.getElementById("timer").innerText=sec;
-if(sec<=0){clearInterval(t); alert("Fertig!");}
-},1000);
-}
-function reset(){
-location.reload();
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
-
