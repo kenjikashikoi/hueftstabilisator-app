@@ -1,165 +1,136 @@
-const week = [
-    {
-        day: "Montag",
-        nutrition: {
-            meals: [
-                "Frühstück: 3 Rühreier + 1 Scheibe Vollkornbrot",
-                "Arbeit: Proteinreiche Mahlzeit",
-                "Snack: Proteinriegel",
-                "Abend: Skyr + Apfel"
-            ],
-            ingredients: [
-                "Eier",
-                "Vollkornbrot",
-                "Skyr",
-                "Apfel"
-            ],
-            cooking: [
-                "Eier in beschichteter Pfanne ohne viel Öl stocken lassen",
-                "Brot toasten",
-                "Skyr mit Apfel mischen"
-            ]
-        }
-    },
-    {
-        day: "Dienstag",
-        nutrition: {
-            meals: [
-                "Frühstück: Skyr, Haferflocken, Banane",
-                "Snack: Proteinriegel",
-                "Hauptmahlzeit: Thunfisch-Zwiebel-Pasta",
-                "Post-Workout: Banane oder Skyr"
-            ],
-            ingredients: [
-                "Skyr",
-                "Haferflocken",
-                "Banane",
-                "Vollkornnudeln",
-                "Thunfisch",
-                "Zwiebeln",
-                "Magerquark"
-            ],
-            cooking: [
-                "Nudeln kochen",
-                "Zwiebeln anbraten",
-                "Thunfisch unterheben",
-                "Milch + Quark einrühren"
-            ]
-        }
-    },
-    {
-        day: "Mittwoch",
-        nutrition: {
-            meals: [
-                "Frühstück: 3 Rühreier + Brot",
-                "Arbeit: Proteinreiche Mahlzeit",
-                "Snack: Proteinriegel",
-                "17 Uhr: kleine Portion Pasta",
-                "Abend: Skyr (optional)"
-            ],
-            ingredients: [
-                "Eier",
-                "Brot",
-                "Pasta-Reste",
-                "Skyr"
-            ],
-            cooking: [
-                "Rührei zubereiten",
-                "Pasta aufwärmen",
-                "Skyr kalt servieren"
-            ]
-        }
-    },
-    {
-        day: "Donnerstag",
-        nutrition: {
-            meals: [
-                "Frühstück: Skyr, Haferflocken, Banane",
-                "Hauptmahlzeit: Chili-Hack-Reis",
-                "Post-Workout: Banane oder Skyr"
-            ],
-            ingredients: [
-                "Skyr",
-                "Haferflocken",
-                "Banane",
-                "Reis",
-                "Hackfleisch",
-                "Kidneybohnen",
-                "Tomaten"
-            ],
-            cooking: [
-                "Reis kochen",
-                "Hackfleisch anbraten",
-                "Bohnen & Tomaten köcheln",
-                "Mit Reis kombinieren"
-            ]
-        }
-    },
-    {
-        day: "Freitag",
-        nutrition: {
-            meals: [
-                "Frühstück: Skyr, Haferflocken, Banane",
-                "Hauptmahlzeit: Chili-Hack-Reis",
-                "Abend: Banane oder Skyr"
-            ],
-            ingredients: [
-                "Skyr",
-                "Haferflocken",
-                "Banane",
-                "Reis",
-                "Hackfleisch",
-                "Bohnen"
-            ],
-            cooking: [
-                "Vorgekochtes Gericht aufwärmen",
-                "Skyr oder Banane frisch essen"
-            ]
-        }
-    }
+const data = [
+{
+day: "Montag",
+nutrition: {
+breakfast: {
+title: "3 Rühreier + Vollkornbrot",
+ingredients: ["3 Eier", "1 Scheibe Vollkornbrot"],
+prep: "Eier in beschichteter Pfanne langsam stocken lassen. Brot toasten."
+},
+lunch: {
+title: "Arbeitsmahlzeit",
+ingredients: ["Proteinreiche Kantinenmahlzeit"],
+prep: "Keine Zubereitung – bewusst wählen."
+},
+dinner: {
+title: "Skyr + Apfel",
+ingredients: ["250 g Skyr", "1 Apfel"],
+prep: "Apfel schneiden, mit Skyr mischen."
+}
+},
+training: []
+},
+
+{
+day: "Dienstag",
+nutrition: {
+breakfast: {
+title: "Skyr + Hafer + Banane",
+ingredients: ["300 g Skyr", "80 g Haferflocken", "1 Banane"],
+prep: "Alles in Schüssel mischen."
+},
+lunch: {
+title: "Thunfisch-Zwiebel-Pasta",
+ingredients: ["Vollkornnudeln", "2 Dosen Thunfisch", "Zwiebeln", "Quark"],
+prep: "Nudeln kochen, Zwiebeln anbraten, Thunfisch & Sauce unterheben."
+}
+},
+training: [
+{
+name: "Isometrische Außenrotation",
+muscle: "Tiefe Hüftrotatoren",
+gear: "Wand / Band",
+execution: "Seitlich stehen, Knie leicht gebeugt, Druck gegen Wand halten."
+},
+{
+name: "Single-Leg Squat",
+muscle: "Gluteus medius",
+gear: "Körpergewicht",
+execution: "Einbeinig kontrolliert absenken, Becken stabil halten."
+}
+]
+},
+
+{
+day: "Mittwoch",
+nutrition: {
+breakfast: {
+title: "3 Rühreier + Vollkornbrot",
+ingredients: ["3 Eier", "1 Scheibe Brot"],
+prep: "Rührei fettarm zubereiten."
+},
+lunch: {
+title: "Arbeitsmahlzeit",
+ingredients: ["Proteinreich"],
+prep: "Keine Zubereitung."
+},
+dinner: {
+title: "½ Portion Pasta",
+ingredients: ["Reste vom Dienstag"],
+prep: "Schonend aufwärmen."
+}
+},
+training: []
+}
 ];
 
-const container = document.getElementById("week");
+const week = document.getElementById("week");
 
-week.forEach(d => {
-    const dayDiv = document.createElement("div");
-    dayDiv.className = "day";
+data.forEach(d => {
+const el = document.createElement("div");
+el.className = "day";
 
-    dayDiv.innerHTML = `
-        <h2>${d.day}</h2>
-        <div class="content">
-            <div class="section">
-                <div class="toggle">🍽 Ernährung <span class="arrow">▶</span></div>
-                <div class="inner">
-                    <strong>Mahlzeiten:</strong>
-                    <ul>${d.nutrition.meals.map(m => `<li>${m}</li>`).join("")}</ul>
+el.innerHTML = `
+<h2>${d.day} <span>▼</span></h2>
+<div class="inner">
 
-                    <div class="toggle">🛒 Zutaten <span class="arrow">▶</span></div>
-                    <div class="inner">
-                        <ul>${d.nutrition.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
-                    </div>
+<div class="section">
+<div class="toggle">🍽️ Essensplan <span class="arrow">▶</span></div>
+<div class="inner">
+${Object.values(d.nutrition).map(m => `
+<div class="toggle">${m.title} <span class="arrow">▶</span></div>
+<div class="inner">
+<strong>Zutaten:</strong>
+<ul>${m.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
+<strong>Zubereitung:</strong>
+<p>${m.prep}</p>
+</div>
+`).join("")}
+</div>
+</div>
 
-                    <div class="toggle">👨‍🍳 Kochen <span class="arrow">▶</span></div>
-                    <div class="inner">
-                        <ol>${d.nutrition.cooking.map(c => `<li>${c}</li>`).join("")}</ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+${d.training.length ? `
+<div class="section">
+<div class="toggle">🏋️ Training <span class="arrow">▶</span></div>
+<div class="inner">
+${d.training.map(t => `
+<div class="toggle">${t.name} <span class="arrow">▶</span></div>
+<div class="inner">
+<strong>Muskelregion:</strong> ${t.muscle}<br>
+<strong>Hilfsmittel:</strong> ${t.gear}<br>
+<strong>Ausführung:</strong> ${t.execution}
+</div>
+`).join("")}
+</div>
+</div>` : ""}
 
-    dayDiv.querySelector("h2").onclick = () => {
-        const content = dayDiv.querySelector(".content");
-        content.style.display = content.style.display === "block" ? "none" : "block";
-    };
+</div>
+`;
 
-    dayDiv.querySelectorAll(".toggle").forEach(toggle => {
-        toggle.onclick = () => {
-            toggle.classList.toggle("open");
-            const inner = toggle.nextElementSibling;
-            inner.style.display = inner.style.display === "block" ? "none" : "block";
-        };
-    });
+week.appendChild(el);
+});
 
-    container.appendChild(dayDiv);
+document.querySelectorAll(".day h2").forEach(h => {
+h.onclick = () => {
+const inner = h.nextElementSibling;
+inner.style.display = inner.style.display === "block" ? "none" : "block";
+};
+});
+
+document.querySelectorAll(".toggle").forEach(t => {
+t.onclick = () => {
+t.classList.toggle("open");
+const inner = t.nextElementSibling;
+inner.style.display = inner.style.display === "block" ? "none" : "block";
+};
 });
