@@ -1,18 +1,137 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tagesdetails</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hüfttraining</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<a href="index.html" class="back">← Zurück</a>
+<h1>🦵 Hüftplan</h1>
 
-<div id="detail"></div>
+<div class="day">
+    <h2>Hüft-Einheit A (Stabilität)</h2>
+    <div class="content">
 
-<script src="script.js"></script>
+        <div class="section">
+            <div class="toggle">🟢 Clamshell <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Gluteus medius / tiefe Außenrotatoren
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>Seitlich liegen, Knie angewinkelt</li>
+                    <li>Becken stabil halten</li>
+                    <li>Oberes Knie langsam öffnen</li>
+                    <li>2 Sekunden oben halten</li>
+                </ol>
+                <strong>Sätze/Wdh:</strong> 3 × 12–15
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="toggle">🟢 Isometrische Hüftabduktion <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Hüftstabilisatoren
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>Seitlich an die Wand lehnen</li>
+                    <li>Bein drückt aktiv gegen die Wand</li>
+                    <li>Becken bleibt gerade</li>
+                </ol>
+                <strong>Halten:</strong> 3 × 20–30 Sekunden
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="toggle">🟢 Hip Hinge Hold (einbeinig) <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Gluteus medius & Hüftkontrolle
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>Einbeinig stehen</li>
+                    <li>Oberkörper leicht nach vorne</li>
+                    <li>Freies Bein gestreckt nach hinten</li>
+                    <li>Position halten</li>
+                </ol>
+                <strong>Halten:</strong> 3 × 20 Sekunden pro Seite
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="day">
+    <h2>Hüft-Einheit B (Mobilität)</h2>
+    <div class="content">
+
+        <div class="section">
+            <div class="toggle">🔵 90/90 Rotation <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Innen- & Außenrotation Hüfte
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>Sitzposition mit 90/90 Beinen</li>
+                    <li>Aufrecht bleiben</li>
+                    <li>Langsam von Seite zu Seite rotieren</li>
+                </ol>
+                <strong>Wdh:</strong> 2–3 × 6–8 pro Seite
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="toggle">🔵 Adductor Rockback <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Adduktoren & Hüftinnenseite
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>Vierfüßlerstand</li>
+                    <li>Ein Bein seitlich ausgestreckt</li>
+                    <li>Becken langsam nach hinten schieben</li>
+                </ol>
+                <strong>Wdh:</strong> 2–3 × 8–10 pro Seite
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="toggle">🔵 Tiefe Squat-Hold <span class="arrow">▶</span></div>
+            <div class="inner">
+                <strong>Ziel:</strong> Hüftmobilität & Entspannung
+                <br><br>
+                <strong>Ausführung:</strong>
+                <ol>
+                    <li>In tiefe Kniebeuge setzen</li>
+                    <li>Ellbogen drücken Knie leicht nach außen</li>
+                    <li>Ruhig atmen</li>
+                </ol>
+                <strong>Halten:</strong> 2 × 30–60 Sekunden
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+document.querySelectorAll(".day h2").forEach(h => {
+    h.onclick = () => {
+        const content = h.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    };
+});
+
+document.querySelectorAll(".toggle").forEach(toggle => {
+    toggle.onclick = () => {
+        toggle.classList.toggle("open");
+        const inner = toggle.nextElementSibling;
+        inner.style.display = inner.style.display === "block" ? "none" : "block";
+    };
+});
+</script>
+
 </body>
 </html>
