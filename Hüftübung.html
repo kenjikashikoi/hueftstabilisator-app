@@ -1,273 +1,887 @@
-/* ===================== WOCHENDATEN ===================== */
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bursitis Iliopectinea Reha-Plan</title>
 
-const weekData = [
-/* ===================== MONTAG ===================== */
-{
-  day: "Montag",
-  nutrition: [
-    {
-      name: "Frühstück",
-      title: "3 Rühreier + Vollkornbrot",
-      ingredients: ["3 Eier", "1 Scheibe Vollkornbrot"],
-      prep: "Eier langsam in beschichteter Pfanne stocken lassen, Brot toasten."
-    },
-    {
-      name: "Mittag",
-      title: "Arbeitsmahlzeit",
-      ingredients: ["Proteinreiche Mahlzeit (30–50 g Protein)"],
-      prep: "Bewusst proteinreich wählen."
-    },
-    {
-      name: "Snack",
-      title: "Proteinriegel",
-      ingredients: ["1 Proteinriegel"],
-      prep: "Keine Zubereitung."
-    },
-    {
-      name: "Abend",
-      title: "Skyr + Apfel",
-      ingredients: ["250 g Skyr", "1 Apfel"],
-      prep: "Apfel schneiden, mit Skyr mischen."
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  ],
-  training: [] // Resttag
-},
 
-/* ===================== DIENSTAG – HÜFTE + KRAFT (GYM) ===================== */
-{
-  day: "Dienstag",
-  nutrition: [
-    {
-      name: "Frühstück",
-      title: "Skyr + Haferflocken + Banane",
-      ingredients: ["300 g Skyr", "80 g Haferflocken", "1 Banane"],
-      prep: "Alles in einer Schüssel vermengen."
-    },
-    {
-      name: "Mittag",
-      title: "Thunfisch-Zwiebel-Pasta",
-      ingredients: ["Vollkornnudeln", "2 Dosen Thunfisch", "Zwiebeln", "Magerquark", "Milch"],
-      prep: "Nudeln kochen, Zwiebeln anbraten, Thunfisch & Sauce unterheben."
+    body {
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: #f9fafb;
+      line-height: 1.5;
+      padding: 20px;
     }
-  ],
-  training: [
-    {
-      name: "Hip Abduction Maschine",
-      muscle: "Gluteus medius",
-      gear: "Abduktionsmaschine",
-      execution: "Aufrecht sitzen, Becken stabil. Beine kontrolliert nach außen drücken, langsam zurückführen."
-    },
-    {
-      name: "Bulgarian Split Squat",
-      muscle: "Gluteus, Quadrizeps",
-      gear: "Kurzhanteln",
-      execution: "Hinteres Bein erhöht, Oberkörper aufrecht. Kontrolliert absenken, explosiv hochdrücken."
-    },
-    {
-      name: "Single-Leg Leg Press",
-      muscle: "Beinachse, Gluteus",
-      gear: "Beinpresse",
-      execution: "Einbeinig drücken, Knie stabil über dem Fuß führen."
-    },
-    {
-      name: "Isometrische Hüft-Außenrotation",
-      muscle: "Tiefe Hüftrotatoren",
-      gear: "Kabelzug oder Miniband",
-      execution: "Knie gegen Widerstand nach außen drücken, Becken stabil halten."
+
+    .app {
+      max-width: 1000px;
+      margin: 0 auto;
     }
-  ]
-},
 
-/* ===================== MITTWOCH ===================== */
-{
-  day: "Mittwoch",
-  nutrition: [
-    {
-      name: "Frühstück",
-      title: "3 Rühreier + Vollkornbrot",
-      ingredients: ["3 Eier", "1 Scheibe Vollkornbrot"],
-      prep: "Rührei fettarm zubereiten."
-    },
-    {
-      name: "Mittag",
-      title: "Arbeitsmahlzeit",
-      ingredients: ["Proteinreiche Mahlzeit"],
-      prep: "Keine Zubereitung."
-    },
-    {
-      name: "Abend",
-      title: "½ Portion Pasta",
-      ingredients: ["Reste vom Dienstag"],
-      prep: "Schonend aufwärmen."
+    header {
+      background: linear-gradient(135deg, #2563eb, #0f766e);
+      padding: 24px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
-  ],
-  training: [] // Resttag
-},
 
-/* ===================== DONNERSTAG – KRAFT + SPRUNG ===================== */
-{
-  day: "Donnerstag",
-  nutrition: [
-    {
-      name: "Frühstück",
-      title: "Skyr + Haferflocken + Banane",
-      ingredients: ["300 g Skyr", "80 g Haferflocken", "1 Banane"],
-      prep: "Alles vermengen."
-    },
-    {
-      name: "Mittag",
-      title: "Chili-Hack-Reis",
-      ingredients: ["Reis", "Hackfleisch", "Kidneybohnen", "Tomaten"],
-      prep: "Reis kochen, Hack anbraten, Bohnen & Tomaten köcheln."
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
-  ],
-  training: [
-    {
-      name: "Trap-Bar Deadlift",
-      muscle: "Gesamte Streckkette",
-      gear: "Trap-Bar",
-      execution: "Neutraler Stand, explosiv hochziehen, kontrolliert ablassen."
-    },
-    {
-      name: "Box Jumps",
-      muscle: "Explosivkraft Beine",
-      gear: "Box",
-      execution: "Beidbeinig abspringen, weich landen, Fokus auf Qualität."
-    },
-    {
-      name: "Seated Calf Raise",
-      muscle: "Waden",
-      gear: "Wadenmaschine",
-      execution: "Langsame Exzentrik, volle Streckung oben."
-    },
-    {
-      name: "Adductor Maschine",
-      muscle: "Adduktoren",
-      gear: "Adduktorenmaschine",
-      execution: "Leichtes Gewicht, kontrollierte Bewegung."
+
+    header p {
+      color: #e5e7eb;
+      font-size: 1rem;
     }
-  ]
-},
 
-/* ===================== FREITAG – TECHNIK + LEICHTE PLYOS ===================== */
-{
-  day: "Freitag",
-  nutrition: [
-    {
-      name: "Frühstück",
-      title: "Skyr + Haferflocken + Banane",
-      ingredients: ["300 g Skyr", "80 g Haferflocken", "1 Banane"],
-      prep: "Alles vermengen."
-    },
-    {
-      name: "Mittag",
-      title: "Chili-Hack-Reis",
-      ingredients: ["Reste vom Donnerstag"],
-      prep: "Aufwärmen."
+    .warning {
+      background: #7f1d1d;
+      border: 1px solid #ef4444;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      color: #fee2e2;
     }
-  ],
-  training: [
-    {
-      name: "Pogo Jumps",
-      muscle: "Waden & Achillessehne",
-      gear: "keins",
-      execution: "Kurze Bodenkontaktzeit, aufrecht bleiben."
-    },
-    {
-      name: "Skater Hops",
-      muscle: "Gluteus medius, Adduktoren",
-      gear: "keins",
-      execution: "Seitlich explosiv springen, stabil landen."
-    },
-    {
-      name: "Cable Hip Stability Hold",
-      muscle: "Hüftstabilisatoren",
-      gear: "Kabelzug",
-      execution: "Einbeinstand, Zug kontrollieren, Becken stabil."
-    },
-    {
-      name: "90/90 Hüftrotation",
-      muscle: "Hüftrotation",
-      gear: "keins",
-      execution: "Langsam rotieren, aufrecht bleiben."
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
     }
-  ]
-},
 
-/* ===================== WOCHENENDE ===================== */
-{ day: "Samstag", nutrition: [], training: [] },
-{ day: "Sonntag", nutrition: [], training: [] }
-];
+    .info-card {
+      background: #1f2937;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid #374151;
+    }
 
-/* ===================== RENDER ===================== */
+    .info-card h3 {
+      margin-bottom: 8px;
+      color: #93c5fd;
+    }
 
-const container = document.getElementById("week");
+    .progress-box {
+      background: #1f2937;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #374151;
+      margin-bottom: 20px;
+    }
 
-weekData.forEach(d => {
-  const dayDiv = document.createElement("div");
-  dayDiv.className = "day";
+    .progress-title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
 
-  dayDiv.innerHTML = `
-    <h2>${d.day}</h2>
-    <div class="inner">
+    .progress-bar {
+      width: 100%;
+      height: 18px;
+      background: #374151;
+      border-radius: 999px;
+      overflow: hidden;
+    }
 
-      <div class="section">
-        <div class="toggle">🍽️ Essensplan <span class="arrow">▶</span></div>
-        <div class="inner">
-          ${d.nutrition.length
-            ? d.nutrition.map(m => `
-              <div class="toggle">${m.name}: ${m.title} <span class="arrow">▶</span></div>
-              <div class="inner">
-                <strong>Zutaten:</strong>
-                <ul>${m.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
-                <strong>Zubereitung:</strong>
-                <p>${m.prep}</p>
-              </div>
-            `).join("")
-            : "<em>Kein Essensplan hinterlegt</em>"
-          }
-        </div>
-      </div>
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #22c55e, #14b8a6);
+      transition: width 0.3s ease;
+    }
 
-      <div class="section">
-        <div class="toggle">🏋️ Trainingsplan des Tages <span class="arrow">▶</span></div>
-        <div class="inner">
-          ${d.training.length
-            ? d.training.map(t => `
-              <div class="toggle">${t.name} <span class="arrow">▶</span></div>
-              <div class="inner">
-                <strong>Muskelregion:</strong> ${t.muscle}<br>
-                <strong>Hilfsmittel/Gerät:</strong> ${t.gear}<br>
-                <strong>Ausführung:</strong>
-                <p>${t.execution}</p>
-              </div>
-            `).join("")
-            : "<em>Resttag / kein Training</em>"
-          }
-        </div>
-      </div>
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .danger-btn {
+      background: #dc2626;
+    }
+
+    .danger-btn:hover {
+      background: #b91c1c;
+    }
+
+    .day {
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111827;
+    }
+
+    .day-header h2 {
+      font-size: 1.3rem;
+    }
+
+    .day-badge {
+      background: #374151;
+      color: #d1d5db;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .day-content {
+      display: none;
+      padding: 18px;
+    }
+
+    .day.open .day-content {
+      display: block;
+    }
+
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .section h3 {
+      color: #93c5fd;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .exercise {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .exercise-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .exercise-header input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .exercise h4 {
+      color: #f9fafb;
+      font-size: 1.05rem;
+    }
+
+    .exercise-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .meta {
+      background: #1f2937;
+      padding: 9px;
+      border-radius: 10px;
+      color: #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    .exercise p {
+      color: #e5e7eb;
+      margin-top: 8px;
+    }
+
+    .avoid-list,
+    .note-list {
+      padding-left: 22px;
+      margin-top: 8px;
+      color: #e5e7eb;
+    }
+
+    .avoid-list li {
+      margin-bottom: 6px;
+      color: #fecaca;
+    }
+
+    .note-list li {
+      margin-bottom: 6px;
+    }
+
+    .green {
+      color: #86efac;
+    }
+
+    .yellow {
+      color: #fde68a;
+    }
+
+    .red {
+      color: #fca5a5;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .day-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>Reha-Plan: Bursitis Iliopectinea</h1>
+      <p>
+        Vorsichtiger 7-Tage-Startplan für Hüftbeuger, Leiste und vordere Hüfte.
+        Ziel: Reizung reduzieren, Kontrolle verbessern und die Hüfte schmerzarm bewegen.
+      </p>
+    </header>
+
+    <div class="warning">
+      <strong>Schmerzregel:</strong>
+      Während der Übungen maximal 2–3/10 Schmerz.
+      Kein stechender Leistenschmerz. Wenn die Beschwerden am nächsten Tag deutlich stärker sind:
+      Umfang reduzieren oder Übung pausieren.
     </div>
-  `;
 
-  container.appendChild(dayDiv);
-});
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>✅ Ziel dieser Woche</h3>
+        <p>Entzündung beruhigen, Hüftbeuger entlasten, Gluteus/Core aktivieren und Beweglichkeit kontrolliert verbessern.</p>
+      </div>
 
-/* ===================== TOGGLES ===================== */
+      <div class="info-card">
+        <h3>❌ Aktuell vermeiden</h3>
+        <p>Spagat, hohe Kicks, dynamisches Dehnen, explosive Hüftbewegungen und Bewegungen mit Leistenschmerz.</p>
+      </div>
 
-document.querySelectorAll(".day h2").forEach(h => {
-  h.onclick = () => {
-    const inner = h.nextElementSibling;
-    inner.style.display = inner.style.display === "block" ? "none" : "block";
-  };
-});
+      <div class="info-card">
+        <h3>⏱️ Dauer</h3>
+        <p>Pro Einheit ca. 15–25 Minuten. Lieber sauber und schmerzarm als intensiv.</p>
+      </div>
 
-document.querySelectorAll(".toggle").forEach(t => {
-  t.onclick = () => {
-    t.classList.toggle("open");
-    const inner = t.nextElementSibling;
-    if (inner) {
-      inner.style.display = inner.style.display === "block" ? "none" : "block";
+      <div class="info-card">
+        <h3>🧠 Fokus</h3>
+        <p>Kontrolle statt maximale Beweglichkeit. Kein Reinziehen in den Schmerz.</p>
+      </div>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-title">
+        <span>Fortschritt</span>
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button onclick="openAllDays()">Alle Tage öffnen</button>
+      <button onclick="closeAllDays()">Alle Tage schließen</button>
+      <button class="danger-btn" onclick="resetProgress()">Fortschritt zurücksetzen</button>
+    </div>
+
+    <main id="week"></main>
+
+    <p class="footer-note">
+      Dieser Plan ersetzt keine ärztliche Behandlung. Besprich ihn bei deinem Orthopäden-Termin.
+    </p>
+  </div>
+
+  <script>
+    const weekData = [
+      {
+        day: "Tag 1",
+        focus: "Entlastung + Grundaktivierung",
+        warmup: [
+          "5 Minuten lockeres Gehen in der Wohnung oder draußen",
+          "Keine großen Schritte, kein Ziehen in der Leiste"
+        ],
+        exercises: [
+          {
+            name: "Rückenlage Knee Drop",
+            goal: "Sanfte Entspannung der vorderen Hüfte und Leiste",
+            sets: "2–3 Durchgänge pro Seite",
+            duration: "30–60 Sekunden",
+            intensity: "Sehr leicht",
+            execution:
+              "Lege dich auf den Rücken. Ein Bein ist angewinkelt, das andere bleibt locker ausgestreckt. Lasse das angewinkelte Knie langsam nach außen sinken, ohne in den Schmerz zu gehen. Becken bleibt ruhig."
+          },
+          {
+            name: "Isometrischer Hüftbeuger-Hold",
+            goal: "Hüftbeuger kontrolliert aktivieren, ohne Reibung durch Bewegung",
+            sets: "3 Sätze pro Seite",
+            duration: "10–15 Sekunden halten",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Setze dich aufrecht oder lege dich auf den Rücken. Hebe ein Knie leicht an, als würdest du die Hüfte beugen. Halte die Position ruhig, ohne Schwung. Bauch leicht anspannen."
+          },
+          {
+            name: "Glute Bridge",
+            goal: "Gesäß aktivieren, um die Vorderseite der Hüfte zu entlasten",
+            sets: "3 Sätze",
+            reps: "10 Wiederholungen",
+            intensity: "Leicht",
+            execution:
+              "Rückenlage, Füße aufstellen. Drücke die Fersen leicht in den Boden und hebe das Becken kontrolliert an. Oben kurz halten, dann langsam absenken. Fokus auf Gesäß, nicht auf unteren Rücken."
+          },
+          {
+            name: "Ball/Kissen Squeeze",
+            goal: "Leiste und Adduktoren sanft aktivieren",
+            sets: "3 Sätze",
+            duration: "10 Sekunden halten",
+            intensity: "Sehr leicht",
+            execution:
+              "Lege dich auf den Rücken, Knie angewinkelt. Kissen oder Ball zwischen die Knie legen und nur leicht zusammendrücken. Kein maximaler Druck."
+          }
+        ],
+        avoid: [
+          "Kein Spagat",
+          "Keine Kicks",
+          "Keine tiefen Ausfallschritte",
+          "Kein aggressives Dehnen des Hüftbeugers"
+        ],
+        notes: [
+          "Heute geht es nicht um Training, sondern um Beruhigung.",
+          "Wenn eine Übung in der Leiste sticht, sofort abbrechen."
+        ]
+      },
+
+      {
+        day: "Tag 2",
+        focus: "Core + Hüftkontrolle",
+        warmup: [
+          "5 Minuten lockeres Gehen",
+          "Danach 10 kleine Beckenkippungen in Rückenlage"
+        ],
+        exercises: [
+          {
+            name: "Dead Bug",
+            goal: "Core-Stabilität und bessere Kontrolle der Hüftbewegung",
+            sets: "3 Sätze",
+            reps: "6–8 Wiederholungen pro Seite",
+            intensity: "Leicht",
+            execution:
+              "Rückenlage, Arme nach oben, Beine in 90 Grad. Senke langsam einen Arm und das gegenüberliegende Bein. Rücken bleibt ruhig am Boden. Nur so tief gehen, wie du Kontrolle hältst."
+          },
+          {
+            name: "Glute Bridge mit kurzem Halten",
+            goal: "Gesäßspannung verbessern",
+            sets: "3 Sätze",
+            reps: "10–12 Wiederholungen",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Wie normale Glute Bridge, aber oben 2 Sekunden halten. Becken bleibt gerade, keine Überstreckung im Rücken."
+          },
+          {
+            name: "Seitlage Clamshell ohne Band",
+            goal: "Gluteus medius aktivieren, wichtig für Hüftstabilität",
+            sets: "2–3 Sätze pro Seite",
+            reps: "10 Wiederholungen",
+            intensity: "Leicht",
+            execution:
+              "Seitlage, Knie leicht angewinkelt. Füße bleiben zusammen, oberes Knie langsam öffnen und wieder schließen. Becken nicht nach hinten drehen."
+          },
+          {
+            name: "Rückenlage Knee Drop",
+            goal: "Spannung vorne in der Hüfte reduzieren",
+            sets: "2 Durchgänge pro Seite",
+            duration: "45 Sekunden",
+            intensity: "Sehr leicht",
+            execution:
+              "Langsam und passiv durchführen. Kein Drücken, kein Nachfedern."
+          }
+        ],
+        avoid: [
+          "Keine seitlichen Kicks",
+          "Keine Sprünge",
+          "Keine tiefen Mobility-Positionen",
+          "Keine Übungen mit starkem Ziehen vorne in der Hüfte"
+        ],
+        notes: [
+          "Core-Übungen sollen die Hüfte entlasten, nicht ermüden.",
+          "Qualität ist wichtiger als Wiederholungen."
+        ]
+      },
+
+      {
+        day: "Tag 3",
+        focus: "Sanfte Mobilität + Stabilität",
+        warmup: [
+          "5–8 Minuten ruhiges Gehen",
+          "Danach 10 kontrollierte Hüftkreise im kleinen Bewegungsradius"
+        ],
+        exercises: [
+          {
+            name: "Controlled Hip Circles im Stand",
+            goal: "Hüfte bewegen ohne Endrange-Stress",
+            sets: "2 Sätze pro Seite",
+            reps: "8 kleine Kreise je Richtung",
+            intensity: "Sehr leicht",
+            execution:
+              "Stelle dich stabil hin. Hebe ein Knie minimal an und mache kleine, langsame Kreise. Bewegung bleibt klein und schmerzfrei."
+          },
+          {
+            name: "Isometrischer Hüftbeuger-Hold",
+            goal: "Belastbarkeit des Hüftbeugers erhöhen",
+            sets: "3 Sätze pro Seite",
+            duration: "15–20 Sekunden halten",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Knie leicht anheben und ruhig halten. Kein Zittern erzwingen. Becken bleibt stabil."
+          },
+          {
+            name: "Wall Sit kurz",
+            goal: "Beinbelastung ohne große Hüftbewegung",
+            sets: "3 Sätze",
+            duration: "15–25 Sekunden halten",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Rücken an die Wand, Knie nur leicht bis mittel beugen. Nicht tief gehen. Druck gleichmäßig über beide Füße."
+          },
+          {
+            name: "Ball/Kissen Squeeze",
+            goal: "Adduktoren kontrolliert aktivieren",
+            sets: "3 Sätze",
+            duration: "10–15 Sekunden halten",
+            intensity: "Leicht",
+            execution:
+              "Nur 30–40 Prozent Kraft einsetzen. Kein Schmerz in der Leiste."
+          }
+        ],
+        avoid: [
+          "Keine schnellen Richtungswechsel",
+          "Keine hohe Schrittweite",
+          "Kein aktives Spagat-Training",
+          "Keine Belastung, die danach nachbrennt"
+        ],
+        notes: [
+          "Wenn Tag 1 und 2 gut waren, darfst du heute minimal mehr halten.",
+          "Bleib trotzdem deutlich unter deiner Schmerzgrenze."
+        ]
+      },
+
+      {
+        day: "Tag 4",
+        focus: "Regeneration + Beruhigung",
+        warmup: [
+          "Optional 10–15 Minuten lockeres Spazieren",
+          "Keine sportliche Einheit erzwingen"
+        ],
+        exercises: [
+          {
+            name: "Rückenlage Atmung mit Beckenkontrolle",
+            goal: "Schutzspannung reduzieren",
+            sets: "3 Durchgänge",
+            duration: "60 Sekunden",
+            intensity: "Sehr leicht",
+            execution:
+              "Rückenlage, Beine aufgestellt. Atme ruhig in den Bauch. Beim Ausatmen Becken minimal kippen, ohne Kraft. Hüfte locker lassen."
+          },
+          {
+            name: "Rückenlage Knee Drop",
+            goal: "Sanfte Entspannung der Leiste",
+            sets: "2 Durchgänge pro Seite",
+            duration: "60 Sekunden",
+            intensity: "Sehr leicht",
+            execution:
+              "Nur entspannen, nicht dehnen. Das Knie fällt nur so weit nach außen, wie es angenehm bleibt."
+          },
+          {
+            name: "Glute Bridge sehr leicht",
+            goal: "Durchblutung und Gesäßaktivierung",
+            sets: "2 Sätze",
+            reps: "8–10 Wiederholungen",
+            intensity: "Sehr leicht",
+            execution:
+              "Langsam anheben, keine maximale Streckung. Bewegung klein halten."
+          }
+        ],
+        avoid: [
+          "Kein Testen der Beweglichkeit",
+          "Kein Spagat-Versuch",
+          "Keine Belastungsprobe",
+          "Keine Plyos oder Sprünge"
+        ],
+        notes: [
+          "Dieser Tag ist bewusst leichter.",
+          "Bei chronischen Beschwerden ist Regeneration ein Teil des Trainings."
+        ]
+      },
+
+      {
+        day: "Tag 5",
+        focus: "Stabilität aufbauen",
+        warmup: [
+          "5 Minuten lockeres Gehen",
+          "10 kleine Hüftkreise pro Seite"
+        ],
+        exercises: [
+          {
+            name: "Single Leg Balance",
+            goal: "Hüftstabilität und Beckenposition verbessern",
+            sets: "3 Sätze pro Seite",
+            duration: "20–30 Sekunden",
+            intensity: "Leicht",
+            execution:
+              "Stehe auf einem Bein. Becken bleibt gerade, Knie leicht weich. Nicht ins Hohlkreuz fallen. Bei Bedarf an Wand festhalten."
+          },
+          {
+            name: "Seitlage Clamshell ohne Band",
+            goal: "Seitliche Hüftmuskulatur stärken",
+            sets: "3 Sätze pro Seite",
+            reps: "10–12 Wiederholungen",
+            intensity: "Leicht",
+            execution:
+              "Langsam öffnen und schließen. Halte oben 1 Sekunde. Kein Schwung."
+          },
+          {
+            name: "Dead Bug",
+            goal: "Core-Kontrolle unter leichter Hüftbewegung",
+            sets: "3 Sätze",
+            reps: "8 Wiederholungen pro Seite",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Langsam und sauber. Wenn die Leiste zieht, Bewegungsradius verkleinern."
+          },
+          {
+            name: "Isometrischer Hüftbeuger-Hold",
+            goal: "Schmerzfreie Belastbarkeit des Hüftbeugers erhöhen",
+            sets: "3 Sätze pro Seite",
+            duration: "15–20 Sekunden",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Halte das Knie ruhig oben. Keine Bewegung, kein Schwung, keine maximale Spannung."
+          }
+        ],
+        avoid: [
+          "Keine explosiven Beinbewegungen",
+          "Keine seitlichen Kicks",
+          "Keine tiefen Dehnpositionen",
+          "Keine Maximalbelastung"
+        ],
+        notes: [
+          "Wenn Single Leg Balance schmerzfrei ist, ist das ein gutes Zeichen.",
+          "Nicht direkt daraus ableiten, dass Kicks wieder okay sind."
+        ]
+      },
+
+      {
+        day: "Tag 6",
+        focus: "Kontrollierte Belastung",
+        warmup: [
+          "5–8 Minuten Gehen",
+          "Danach 2 leichte Runden Knee Drop"
+        ],
+        exercises: [
+          {
+            name: "Mini Squat",
+            goal: "Beine belasten ohne starken Hüftbeuger-Stress",
+            sets: "3 Sätze",
+            reps: "8–10 Wiederholungen",
+            intensity: "Leicht",
+            execution:
+              "Schulterbreiter Stand. Nur leicht in die Knie gehen, Rücken neutral, Knie folgen den Füßen. Nicht tief beugen."
+          },
+          {
+            name: "Wall Sit kurz",
+            goal: "Kontrollierte statische Beinbelastung",
+            sets: "3 Sätze",
+            duration: "20–30 Sekunden",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Rücken an die Wand. Position nur so tief, dass die Leiste ruhig bleibt."
+          },
+          {
+            name: "Glute Bridge",
+            goal: "Gesäßkraft stabilisieren",
+            sets: "3 Sätze",
+            reps: "12 Wiederholungen",
+            intensity: "Leicht bis moderat",
+            execution:
+              "Kontrolliert hoch und runter. Oben 1–2 Sekunden halten."
+          },
+          {
+            name: "Ball/Kissen Squeeze",
+            goal: "Leistenkontrolle ohne große Bewegung",
+            sets: "3 Sätze",
+            duration: "15 Sekunden",
+            intensity: "Leicht",
+            execution:
+              "Gleichmäßig drücken, nicht maximal. Danach komplett lösen."
+          }
+        ],
+        avoid: [
+          "Keine Sprungübungen",
+          "Keine Boxing-/Kicktechnik",
+          "Kein explosives Beinheben",
+          "Kein starker Muskelkater provozieren"
+        ],
+        notes: [
+          "Heute darf es sich wie Training anfühlen, aber nicht wie Sport.",
+          "Am nächsten Tag sollte die Hüfte mindestens gleich gut oder besser sein."
+        ]
+      },
+
+      {
+        day: "Tag 7",
+        focus: "Check + ruhige Wiederholung",
+        warmup: [
+          "10 Minuten lockeres Gehen",
+          "Danach kurz prüfen: Wie fühlt sich die Leiste im Alltag an?"
+        ],
+        exercises: [
+          {
+            name: "Rückenlage Knee Drop",
+            goal: "Spannung reduzieren",
+            sets: "2 Durchgänge pro Seite",
+            duration: "60 Sekunden",
+            intensity: "Sehr leicht",
+            execution:
+              "Ruhig sinken lassen, keine Dehnung erzwingen."
+          },
+          {
+            name: "Dead Bug",
+            goal: "Core und Hüftkontrolle festigen",
+            sets: "2–3 Sätze",
+            reps: "8 Wiederholungen pro Seite",
+            intensity: "Leicht",
+            execution:
+              "Bewegung langsam, Rücken stabil. Schmerzfrei bleiben."
+          },
+          {
+            name: "Single Leg Balance",
+            goal: "Stabilität vergleichen",
+            sets: "3 Sätze pro Seite",
+            duration: "20–30 Sekunden",
+            intensity: "Leicht",
+            execution:
+              "Achte darauf, ob eine Seite deutlich instabiler ist. Kein Schmerz provozieren."
+          },
+          {
+            name: "Glute Bridge",
+            goal: "Gesäßaktivierung erhalten",
+            sets: "2–3 Sätze",
+            reps: "10–12 Wiederholungen",
+            intensity: "Leicht",
+            execution:
+              "Sauber und ruhig. Kein Hohlkreuz."
+          }
+        ],
+        avoid: [
+          "Kein Belastungstest mit Spagat",
+          "Keine hohen Kicks zum Prüfen",
+          "Keine explosive Technik",
+          "Keine Übung, die Schmerz > 3/10 verursacht"
+        ],
+        notes: [
+          "Heute sammelst du Infos für den Orthopäden.",
+          "Merke dir: Welche Übungen gingen gut? Welche haben gereizt?"
+        ]
+      }
+    ];
+
+    const weekContainer = document.getElementById("week");
+
+    function createExerciseId(dayIndex, exerciseIndex) {
+      return `reha_day_${dayIndex}_exercise_${exerciseIndex}`;
     }
-  };
-});
+
+    function getProgressData() {
+      const saved = localStorage.getItem("bursitisRehaProgress");
+      return saved ? JSON.parse(saved) : {};
+    }
+
+    function saveProgressData(data) {
+      localStorage.setItem("bursitisRehaProgress", JSON.stringify(data));
+    }
+
+    function renderWeek() {
+      const progress = getProgressData();
+      weekContainer.innerHTML = "";
+
+      weekData.forEach((day, dayIndex) => {
+        const dayDiv = document.createElement("section");
+        dayDiv.className = "day";
+
+        const completedCount = day.exercises.filter((_, exerciseIndex) => {
+          return progress[createExerciseId(dayIndex, exerciseIndex)];
+        }).length;
+
+        dayDiv.innerHTML = `
+          <div class="day-header">
+            <h2>${day.day} – ${day.focus}</h2>
+            <span class="day-badge">${completedCount}/${day.exercises.length} erledigt</span>
+          </div>
+
+          <div class="day-content">
+            <div class="section">
+              <h3>🔥 Warm-up</h3>
+              <ul class="note-list">
+                ${day.warmup.map(item => `<li>${item}</li>`).join("")}
+              </ul>
+            </div>
+
+            <div class="section">
+              <h3>✅ Übungen</h3>
+              ${day.exercises.map((exercise, exerciseIndex) => {
+                const id = createExerciseId(dayIndex, exerciseIndex);
+                const checked = progress[id] ? "checked" : "";
+
+                return `
+                  <div class="exercise">
+                    <div class="exercise-header">
+                      <input type="checkbox" id="${id}" ${checked} onchange="toggleExercise('${id}')">
+                      <h4>${exercise.name}</h4>
+                    </div>
+
+                    <div class="exercise-meta">
+                      <div class="meta"><strong>Ziel:</strong> ${exercise.goal}</div>
+                      <div class="meta"><strong>Sätze:</strong> ${exercise.sets || "-"}</div>
+                      <div class="meta"><strong>Dauer:</strong> ${exercise.duration || "-"}</div>
+                      <div class="meta"><strong>Wdh.:</strong> ${exercise.reps || "-"}</div>
+                      <div class="meta"><strong>Intensität:</strong> ${exercise.intensity}</div>
+                    </div>
+
+                    <p><strong>Ausführung:</strong> ${exercise.execution}</p>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+
+            <div class="section">
+              <h3>❌ Heute vermeiden</h3>
+              <ul class="avoid-list">
+                ${day.avoid.map(item => `<li>${item}</li>`).join("")}
+              </ul>
+            </div>
+
+            <div class="section">
+              <h3>📝 Hinweise</h3>
+              <ul class="note-list">
+                ${day.notes.map(item => `<li>${item}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        `;
+
+        weekContainer.appendChild(dayDiv);
+      });
+
+      addDayToggleEvents();
+      updateProgress();
+    }
+
+    function addDayToggleEvents() {
+      document.querySelectorAll(".day-header").forEach(header => {
+        header.addEventListener("click", () => {
+          header.parentElement.classList.toggle("open");
+        });
+      });
+    }
+
+    function toggleExercise(id) {
+      const progress = getProgressData();
+      progress[id] = !progress[id];
+      saveProgressData(progress);
+      renderWeek();
+    }
+
+    function updateProgress() {
+      const progress = getProgressData();
+
+      let total = 0;
+      let completed = 0;
+
+      weekData.forEach((day, dayIndex) => {
+        day.exercises.forEach((_, exerciseIndex) => {
+          total++;
+          if (progress[createExerciseId(dayIndex, exerciseIndex)]) {
+            completed++;
+          }
+        });
+      });
+
+      const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+      document.getElementById("progressText").textContent = `${percent}%`;
+      document.getElementById("progressFill").style.width = `${percent}%`;
+    }
+
+    function openAllDays() {
+      document.querySelectorAll(".day").forEach(day => {
+        day.classList.add("open");
+      });
+    }
+
+    function closeAllDays() {
+      document.querySelectorAll(".day").forEach(day => {
+        day.classList.remove("open");
+      });
+    }
+
+    function resetProgress() {
+      const confirmed = confirm("Möchtest du deinen Fortschritt wirklich zurücksetzen?");
+      if (!confirmed) return;
+
+      localStorage.removeItem("bursitisRehaProgress");
+      renderWeek();
+    }
+
+    renderWeek();
+  </script>
+</body>
+</html>
