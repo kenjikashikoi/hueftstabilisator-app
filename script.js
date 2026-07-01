@@ -1,451 +1,459 @@
-/* ===================== REHA-DATEN: BURSITIS ILIOPECTINEA ===================== */
+/* ===================== REHA-APP: BURSITIS ILIOPECTINEA ===================== */
+/* 
+  Startseite = Phasen/Wochen
+  Klick auf Phase/Woche = Dropdown mit Übungen, Bemerkungen, Vermeiden etc.
+*/
 
-const weekData = [
-  /* ===================== MONTAG ===================== */
+/* ===================== PHASEN / WOCHEN DATEN ===================== */
+
+const phaseData = [
   {
-    day: "Montag",
-    focus: "Entlastung + Grundaktivierung",
-    goal: "Reizung reduzieren, Hüftbeuger beruhigen und leichte Aktivierung starten.",
-    warmup: [
-      "5 Minuten lockeres Gehen",
-      "Keine großen Schritte",
-      "Keine Dehnung in den Schmerz"
+    phase: "Phase 1",
+    title: "Woche 1 – Beruhigung & Grundaktivierung",
+    duration: "7 Tage",
+    status: "Aktueller Start",
+    goal:
+      "Die Entzündungsreizung reduzieren, den Hüftbeuger beruhigen und die Hüfte wieder kontrolliert bewegen, ohne Spagat oder Kicks zu provozieren.",
+    description:
+      "Diese Woche ist bewusst vorsichtig. Es geht nicht darum, stark zu trainieren, sondern den dauerhaften Reizkreislauf zu unterbrechen.",
+    rules: [
+      "Maximal 2–3/10 Schmerz während der Übungen",
+      "Kein stechender Leistenschmerz",
+      "Keine Spagat-Tests",
+      "Keine hohen oder seitlichen Kicks",
+      "Wenn es am nächsten Tag deutlich schlechter ist, war es zu viel"
+    ],
+    avoid: [
+      "Spagat",
+      "Seitliche Kicks",
+      "Hohe Kicks",
+      "Explosive Hüftbewegungen",
+      "Dynamisches Dehnen",
+      "Tiefe Ausfallschritte",
+      "Alles, was vorne in der Leiste sticht"
     ],
     exercises: [
       {
         name: "Rückenlage Knee Drop",
         area: "Leiste / vordere Hüfte",
+        frequency: "Täglich",
         sets: "2–3 Durchgänge pro Seite",
-        reps: "30–60 Sekunden halten",
+        reps: "30–60 Sekunden",
         intensity: "Sehr leicht",
         execution:
-          "Lege dich auf den Rücken. Ein Bein ist angewinkelt, das andere bleibt locker ausgestreckt. Lasse das angewinkelte Knie langsam nach außen fallen. Nur so weit, wie es angenehm bleibt. Kein Drücken, kein Nachfedern."
+          "Lege dich auf den Rücken. Ein Bein ist angewinkelt, das andere bleibt locker ausgestreckt. Lasse das angewinkelte Knie langsam nach außen fallen. Nur so weit, wie es angenehm bleibt. Kein Drücken, kein Nachfedern.",
+        notes:
+          "Diese Übung soll entspannen, nicht maximal dehnen. Wenn du vorne in der Leiste ein Stechen spürst, Bewegungsradius sofort verkleinern."
       },
       {
         name: "Isometrischer Hüftbeuger-Hold",
         area: "Iliopsoas / Hüftbeuger",
+        frequency: "5–6x pro Woche",
         sets: "3 Sätze pro Seite",
-        reps: "10–15 Sekunden halten",
-        intensity: "Leicht",
+        reps: "10–20 Sekunden halten",
+        intensity: "Leicht bis moderat",
         execution:
-          "Setze dich aufrecht hin oder lege dich auf den Rücken. Hebe ein Knie leicht an, als würdest du die Hüfte beugen. Halte die Position ruhig ohne Bewegung. Bauch leicht anspannen. Kein stechender Leistenschmerz."
+          "Setze dich aufrecht hin oder lege dich auf den Rücken. Hebe ein Knie leicht an, als würdest du die Hüfte beugen. Halte die Position ruhig ohne Bewegung. Bauch leicht anspannen. Kein Schwung.",
+        notes:
+          "Das ist eine der wichtigsten Übungen, weil der Hüftbeuger belastet wird, ohne dass viel Reibung durch Bewegung entsteht."
       },
       {
         name: "Glute Bridge",
         area: "Gesäß / hintere Kette",
+        frequency: "5–6x pro Woche",
         sets: "3 Sätze",
-        reps: "10 Wiederholungen",
+        reps: "10–12 Wiederholungen",
         intensity: "Leicht",
         execution:
-          "Lege dich auf den Rücken, stelle beide Füße auf. Drücke die Fersen leicht in den Boden und hebe das Becken kontrolliert an. Oben kurz halten, dann langsam absenken. Fokus liegt auf dem Gesäß, nicht auf dem unteren Rücken."
+          "Lege dich auf den Rücken, stelle beide Füße auf. Drücke die Fersen leicht in den Boden und hebe das Becken kontrolliert an. Oben kurz halten, dann langsam absenken. Fokus liegt auf dem Gesäß, nicht auf dem unteren Rücken.",
+        notes:
+          "Ziel ist, dass dein Gesäß wieder mehr Arbeit übernimmt und die Vorderseite der Hüfte weniger überlastet."
+      },
+      {
+        name: "Dead Bug",
+        area: "Core / Hüftkontrolle",
+        frequency: "4–5x pro Woche",
+        sets: "2–3 Sätze",
+        reps: "6–8 Wiederholungen pro Seite",
+        intensity: "Leicht",
+        execution:
+          "Lege dich auf den Rücken. Arme zeigen nach oben, Beine sind in 90 Grad angewinkelt. Senke langsam einen Arm und das gegenüberliegende Bein. Der Rücken bleibt ruhig am Boden. Nur so weit gehen, wie du Kontrolle hältst.",
+        notes:
+          "Wenn die Leiste zieht, das Bein weniger weit absenken. Es geht um Kontrolle, nicht um maximale Reichweite."
       },
       {
         name: "Ball- oder Kissen-Squeeze",
         area: "Adduktoren / Leiste",
+        frequency: "4–5x pro Woche",
         sets: "3 Sätze",
-        reps: "10 Sekunden halten",
-        intensity: "Sehr leicht",
+        reps: "10–15 Sekunden halten",
+        intensity: "Sehr leicht bis leicht",
         execution:
-          "Lege dich auf den Rücken, Knie angewinkelt. Lege ein Kissen oder einen Ball zwischen die Knie. Drücke nur leicht zusammen, ungefähr 30–40 Prozent Kraft. Danach komplett lösen."
-      }
-    ],
-    avoid: [
-      "Kein Spagat",
-      "Keine Kicks",
-      "Keine Sprünge",
-      "Kein aggressives Hüftbeuger-Dehnen",
-      "Keine Bewegung mit stechendem Leistenschmerz"
-    ],
-    notes: [
-      "Heute geht es nur darum, die Hüfte zu beruhigen.",
-      "Maximal 2–3/10 Schmerz erlaubt.",
-      "Wenn es danach stärker wird, beim nächsten Mal weniger machen."
-    ]
-  },
-
-  /* ===================== DIENSTAG ===================== */
-  {
-    day: "Dienstag",
-    focus: "Core + Hüftkontrolle",
-    goal: "Bessere Kontrolle der Hüfte aufbauen, ohne den Schleimbeutel zusätzlich zu reizen.",
-    warmup: [
-      "5 Minuten lockeres Gehen",
-      "10 langsame Beckenkippungen in Rückenlage",
-      "Danach kurz prüfen: Leiste ruhig oder gereizt?"
-    ],
-    exercises: [
-      {
-        name: "Dead Bug",
-        area: "Core / Hüftkontrolle",
-        sets: "3 Sätze",
-        reps: "6–8 Wiederholungen pro Seite",
-        intensity: "Leicht",
-        execution:
-          "Lege dich auf den Rücken. Arme zeigen nach oben, Beine sind in 90 Grad angewinkelt. Senke langsam einen Arm und das gegenüberliegende Bein. Der Rücken bleibt ruhig am Boden. Nur so weit gehen, wie du Kontrolle hältst."
+          "Lege dich auf den Rücken, Knie angewinkelt. Lege ein Kissen oder einen Ball zwischen die Knie. Drücke nur leicht zusammen, ungefähr 30–40 Prozent Kraft. Danach komplett lösen.",
+        notes:
+          "Nicht maximal drücken. Die Leiste soll kontrolliert aktiviert werden, nicht gereizt."
       },
       {
-        name: "Glute Bridge mit kurzem Halten",
-        area: "Gesäß",
-        sets: "3 Sätze",
-        reps: "10–12 Wiederholungen",
-        intensity: "Leicht bis moderat",
-        execution:
-          "Führe eine normale Glute Bridge aus. Halte oben 2 Sekunden. Becken bleibt gerade. Nicht ins Hohlkreuz gehen."
-      },
-      {
-        name: "Seitlage Clamshell ohne Band",
-        area: "Seitliche Hüfte / Gluteus medius",
-        sets: "2–3 Sätze pro Seite",
-        reps: "10 Wiederholungen",
-        intensity: "Leicht",
-        execution:
-          "Lege dich auf die Seite. Knie leicht beugen, Füße bleiben zusammen. Öffne das obere Knie langsam und kontrolliert, ohne das Becken nach hinten zu drehen. Danach langsam schließen."
-      },
-      {
-        name: "Rückenlage Knee Drop",
-        area: "Leiste / vordere Hüfte",
-        sets: "2 Durchgänge pro Seite",
-        reps: "45 Sekunden halten",
-        intensity: "Sehr leicht",
-        execution:
-          "Wie am Montag. Kein Ziehen erzwingen. Die Bewegung soll entspannen, nicht maximal dehnen."
-      }
-    ],
-    avoid: [
-      "Keine seitlichen Kicks",
-      "Keine tiefen Ausfallschritte",
-      "Keine dynamischen Dehnungen",
-      "Keine Sprünge"
-    ],
-    notes: [
-      "Core-Arbeit soll die Hüfte entlasten.",
-      "Wenn Dead Bug in der Leiste zieht, Bewegungsradius kleiner machen."
-    ]
-  },
-
-  /* ===================== MITTWOCH ===================== */
-  {
-    day: "Mittwoch",
-    focus: "Sanfte Mobilität + Stabilität",
-    goal: "Beweglichkeit kontrolliert verbessern, ohne Endpositionen wie Spagat zu reizen.",
-    warmup: [
-      "5–8 Minuten ruhiges Gehen",
-      "Danach kleine Hüftkreise ohne Schmerz"
-    ],
-    exercises: [
-      {
-        name: "Controlled Hip Circles im Stand",
+        name: "Controlled Hip Circles klein",
         area: "Hüftmobilität",
+        frequency: "3–4x pro Woche",
         sets: "2 Sätze pro Seite",
         reps: "8 kleine Kreise je Richtung",
         intensity: "Sehr leicht",
         execution:
-          "Stelle dich stabil hin. Hebe ein Knie leicht an und mache kleine, langsame Kreise. Die Bewegung bleibt klein. Kein Reißen, kein Schwung, kein Endrange-Stress."
+          "Stelle dich stabil hin. Hebe ein Knie leicht an und mache kleine, langsame Kreise. Die Bewegung bleibt klein. Kein Reißen, kein Schwung, keine Endposition.",
+        notes:
+          "Die Kreise bleiben bewusst klein. Keine Mobility-Challenge daraus machen."
       },
-      {
-        name: "Isometrischer Hüftbeuger-Hold",
-        area: "Iliopsoas / Hüftbeuger",
-        sets: "3 Sätze pro Seite",
-        reps: "15–20 Sekunden halten",
-        intensity: "Leicht bis moderat",
-        execution:
-          "Hebe das Knie leicht an und halte ruhig. Becken bleibt stabil. Nicht maximal anspannen. Ziel ist Kontrolle, nicht Krafttest."
-      },
-      {
-        name: "Wall Sit kurz",
-        area: "Beine / Hüftbelastung ohne große Bewegung",
-        sets: "3 Sätze",
-        reps: "15–25 Sekunden halten",
-        intensity: "Leicht bis moderat",
-        execution:
-          "Lehne dich mit dem Rücken an eine Wand. Gehe nur leicht bis mittel in die Knie. Nicht tief sitzen. Die Leiste muss ruhig bleiben."
-      },
-      {
-        name: "Ball- oder Kissen-Squeeze",
-        area: "Adduktoren / Leiste",
-        sets: "3 Sätze",
-        reps: "10–15 Sekunden halten",
-        intensity: "Leicht",
-        execution:
-          "Kissen oder Ball zwischen die Knie. Leicht zusammendrücken, halten, lösen. Kein maximaler Druck."
-      }
-    ],
-    avoid: [
-      "Kein Spagat-Training",
-      "Keine hohen Beinhebungen",
-      "Keine schnellen Richtungswechsel",
-      "Keine Bewegungen, die danach nachbrennen"
-    ],
-    notes: [
-      "Heute darf es minimal aktiver sein, aber weiterhin vorsichtig.",
-      "Wenn die Hüfte am nächsten Tag schlechter ist, war es zu viel."
-    ]
-  },
-
-  /* ===================== DONNERSTAG ===================== */
-  {
-    day: "Donnerstag",
-    focus: "Regeneration + Beruhigung",
-    goal: "Schutzspannung reduzieren und der Hüfte bewusst einen ruhigen Tag geben.",
-    warmup: [
-      "Optional 10–15 Minuten lockeres Spazieren",
-      "Nicht erzwingen, wenn die Hüfte müde oder gereizt ist"
-    ],
-    exercises: [
-      {
-        name: "Rückenlage Atmung mit Beckenkontrolle",
-        area: "Core / Entspannung",
-        sets: "3 Durchgänge",
-        reps: "60 Sekunden",
-        intensity: "Sehr leicht",
-        execution:
-          "Lege dich auf den Rücken, Beine aufgestellt. Atme ruhig in den Bauch. Beim Ausatmen kippe das Becken minimal, ohne Kraft. Die Hüfte bleibt locker."
-      },
-      {
-        name: "Rückenlage Knee Drop",
-        area: "Leiste / vordere Hüfte",
-        sets: "2 Durchgänge pro Seite",
-        reps: "60 Sekunden halten",
-        intensity: "Sehr leicht",
-        execution:
-          "Lasse das Knie locker nach außen sinken. Kein aktives Drücken. Kein Nachfedern. Es soll angenehm bleiben."
-      },
-      {
-        name: "Glute Bridge sehr leicht",
-        area: "Gesäß / Durchblutung",
-        sets: "2 Sätze",
-        reps: "8–10 Wiederholungen",
-        intensity: "Sehr leicht",
-        execution:
-          "Kleine, kontrollierte Bewegung. Nicht maximal hochdrücken. Nur leichte Aktivierung."
-      }
-    ],
-    avoid: [
-      "Kein Beweglichkeitstest",
-      "Kein Spagat-Versuch",
-      "Keine Kicks",
-      "Keine Plyos oder Sprünge"
-    ],
-    notes: [
-      "Dieser Tag ist bewusst leichter.",
-      "Regeneration ist bei chronischen Beschwerden ein aktiver Teil der Reha."
-    ]
-  },
-
-  /* ===================== FREITAG ===================== */
-  {
-    day: "Freitag",
-    focus: "Stabilität aufbauen",
-    goal: "Hüft- und Beckenstabilität verbessern, damit der Hüftbeuger langfristig weniger überlastet.",
-    warmup: [
-      "5 Minuten lockeres Gehen",
-      "10 kleine Hüftkreise pro Seite"
-    ],
-    exercises: [
       {
         name: "Single Leg Balance",
         area: "Hüftstabilität / Becken",
+        frequency: "3–4x pro Woche",
         sets: "3 Sätze pro Seite",
         reps: "20–30 Sekunden halten",
         intensity: "Leicht",
         execution:
-          "Stelle dich auf ein Bein. Knie leicht weich lassen. Becken bleibt gerade. Nicht ins Hohlkreuz fallen. Bei Bedarf an der Wand festhalten."
-      },
-      {
-        name: "Seitlage Clamshell ohne Band",
-        area: "Gluteus medius / seitliche Hüfte",
-        sets: "3 Sätze pro Seite",
-        reps: "10–12 Wiederholungen",
-        intensity: "Leicht",
-        execution:
-          "Seitlage, Füße zusammen. Oberes Knie langsam öffnen. Oben 1 Sekunde halten. Kein Schwung und keine Rotation im Becken."
-      },
-      {
-        name: "Dead Bug",
-        area: "Core / Hüftkontrolle",
-        sets: "3 Sätze",
-        reps: "8 Wiederholungen pro Seite",
-        intensity: "Leicht bis moderat",
-        execution:
-          "Langsam und sauber ausführen. Wenn die Leiste zieht, das Bein weniger weit absenken."
-      },
-      {
-        name: "Isometrischer Hüftbeuger-Hold",
-        area: "Iliopsoas / Hüftbeuger",
-        sets: "3 Sätze pro Seite",
-        reps: "15–20 Sekunden halten",
-        intensity: "Leicht bis moderat",
-        execution:
-          "Knie leicht anheben und ruhig halten. Kein Schwung. Kein maximaler Druck. Ziel ist schmerzfreie Belastbarkeit."
+          "Stelle dich auf ein Bein. Knie leicht weich lassen. Becken bleibt gerade. Nicht ins Hohlkreuz fallen. Bei Bedarf an der Wand festhalten.",
+        notes:
+          "Wenn diese Übung schmerzfrei klappt, ist das ein gutes Zeichen für bessere Hüftkontrolle. Es bedeutet aber noch nicht, dass Kicks wieder bereit sind."
       }
     ],
-    avoid: [
-      "Keine explosiven Beinbewegungen",
-      "Keine seitlichen Kicks",
-      "Keine tiefen Dehnpositionen",
-      "Keine Maximalbelastung"
-    ],
-    notes: [
-      "Wenn Einbeinstand schmerzfrei ist, ist das ein gutes Zeichen.",
-      "Das bedeutet aber noch nicht, dass Kicks wieder bereit sind."
+    weeklyNotes: [
+      "Diese Woche nicht testen, ob Spagat oder Kicks schon wieder gehen.",
+      "Der wichtigste Fortschritt ist weniger Druck in der Leiste und weniger Reizung am Folgetag.",
+      "Wenn du nach 7 Tagen weniger Grundspannung spürst, ist das bereits ein guter Anfang."
     ]
   },
 
-  /* ===================== SAMSTAG ===================== */
   {
-    day: "Samstag",
-    focus: "Kontrollierte Belastung",
-    goal: "Leichte Beinbelastung integrieren, ohne die vordere Hüfte zu reizen.",
-    warmup: [
-      "5–8 Minuten Gehen",
-      "Danach 2 leichte Runden Knee Drop"
+    phase: "Phase 2",
+    title: "Woche 2 – Stabilität & kontrollierte Belastung",
+    duration: "7 Tage",
+    status: "Nach Woche 1, wenn Schmerz nicht schlechter wurde",
+    goal:
+      "Die Hüfte weiter stabilisieren und etwas mehr Belastung einbauen, ohne direkt wieder in sportartspezifische Endpositionen zu gehen.",
+    description:
+      "Diese Phase startest du nur, wenn Woche 1 insgesamt gut vertragen wurde. Es geht um leichte Kraft, Stabilität und bessere Belastbarkeit.",
+    rules: [
+      "Nur starten, wenn Woche 1 keine deutliche Verschlechterung ausgelöst hat",
+      "Weiterhin maximal 2–3/10 Schmerz",
+      "Keine explosive Technik",
+      "Kein Spagat-Test",
+      "Wenn eine Übung nachbrennt, zurück zu Phase 1"
+    ],
+    avoid: [
+      "Volle Kicks",
+      "Spagat",
+      "Sprung-Kombinationen",
+      "Tricking-Technik mit Hüft-Endposition",
+      "Schwere Beinübungen",
+      "Tiefe Bulgarian Split Squats",
+      "Box Jumps oder Skater Hops"
     ],
     exercises: [
       {
         name: "Mini Squat",
         area: "Beine / Hüfte",
+        frequency: "3–4x pro Woche",
         sets: "3 Sätze",
         reps: "8–10 Wiederholungen",
         intensity: "Leicht",
         execution:
-          "Schulterbreiter Stand. Gehe nur leicht in die Knie. Rücken neutral, Knie folgen den Füßen. Nicht tief beugen. Die Leiste bleibt ruhig."
+          "Schulterbreiter Stand. Gehe nur leicht in die Knie. Rücken neutral, Knie folgen den Füßen. Nicht tief beugen. Die Leiste bleibt ruhig.",
+        notes:
+          "Diese Übung ist kein Krafttest. Sie soll zeigen, ob die Hüfte leichte Alltagsbelastung kontrolliert toleriert."
       },
       {
         name: "Wall Sit kurz",
         area: "Beine / statische Belastung",
+        frequency: "3–4x pro Woche",
         sets: "3 Sätze",
         reps: "20–30 Sekunden halten",
         intensity: "Leicht bis moderat",
         execution:
-          "Rücken an die Wand. Nur so tief gehen, dass kein Leistenschmerz entsteht. Gleichmäßig über beide Füße belasten."
+          "Lehne dich mit dem Rücken an eine Wand. Gehe nur so tief, dass kein Leistenschmerz entsteht. Gleichmäßig über beide Füße belasten.",
+        notes:
+          "Nicht tief sitzen. Vorderseite der Hüfte darf nicht drücken oder stechen."
       },
       {
-        name: "Glute Bridge",
-        area: "Gesäß",
+        name: "Glute Bridge mit Halten",
+        area: "Gesäß / Hüftstreckung",
+        frequency: "4–5x pro Woche",
         sets: "3 Sätze",
-        reps: "12 Wiederholungen",
+        reps: "10–12 Wiederholungen, oben 2 Sekunden halten",
         intensity: "Leicht bis moderat",
         execution:
-          "Becken kontrolliert anheben. Oben 1–2 Sekunden halten. Kein Hohlkreuz."
+          "Führe eine normale Glute Bridge aus. Halte oben 2 Sekunden. Becken bleibt gerade. Nicht ins Hohlkreuz gehen.",
+        notes:
+          "Saubere Gesäßaktivierung ist wichtiger als Höhe."
       },
       {
-        name: "Ball- oder Kissen-Squeeze",
-        area: "Adduktoren / Leiste",
-        sets: "3 Sätze",
-        reps: "15 Sekunden halten",
-        intensity: "Leicht",
-        execution:
-          "Gleichmäßig drücken, danach komplett lösen. Kein maximaler Druck."
-      }
-    ],
-    avoid: [
-      "Keine Sprungübungen",
-      "Keine Kicktechnik",
-      "Kein explosives Beinheben",
-      "Kein starker Muskelkater provozieren"
-    ],
-    notes: [
-      "Heute darf es sich leicht wie Training anfühlen, aber nicht wie Sport.",
-      "Die Hüfte sollte am nächsten Tag gleich gut oder besser sein."
-    ]
-  },
-
-  /* ===================== SONNTAG ===================== */
-  {
-    day: "Sonntag",
-    focus: "Check + ruhige Wiederholung",
-    goal: "Woche auswerten und Informationen für den Orthopäden sammeln.",
-    warmup: [
-      "10 Minuten lockeres Gehen",
-      "Danach kurz prüfen: Wie fühlt sich die Leiste im Alltag an?"
-    ],
-    exercises: [
-      {
-        name: "Rückenlage Knee Drop",
-        area: "Leiste / vordere Hüfte",
-        sets: "2 Durchgänge pro Seite",
-        reps: "60 Sekunden halten",
-        intensity: "Sehr leicht",
-        execution:
-          "Ruhig sinken lassen. Keine Dehnung erzwingen. Kein Nachfedern."
-      },
-      {
-        name: "Dead Bug",
-        area: "Core / Hüftkontrolle",
-        sets: "2–3 Sätze",
-        reps: "8 Wiederholungen pro Seite",
-        intensity: "Leicht",
-        execution:
-          "Langsam und sauber. Rücken bleibt ruhig. Schmerzfrei bleiben."
-      },
-      {
-        name: "Single Leg Balance",
-        area: "Hüftstabilität",
+        name: "Seitlage Clamshell ohne Band",
+        area: "Seitliche Hüfte / Gluteus medius",
+        frequency: "4x pro Woche",
         sets: "3 Sätze pro Seite",
-        reps: "20–30 Sekunden halten",
-        intensity: "Leicht",
-        execution:
-          "Achte darauf, ob eine Seite deutlich instabiler ist. Becken gerade halten. Nicht in den Schmerz gehen."
-      },
-      {
-        name: "Glute Bridge",
-        area: "Gesäß",
-        sets: "2–3 Sätze",
         reps: "10–12 Wiederholungen",
         intensity: "Leicht",
         execution:
-          "Sauber und ruhig ausführen. Kein Hohlkreuz. Fokus auf Gesäßaktivierung."
+          "Lege dich auf die Seite. Knie leicht beugen, Füße bleiben zusammen. Öffne das obere Knie langsam und kontrolliert, ohne das Becken nach hinten zu drehen. Danach langsam schließen.",
+        notes:
+          "Diese Übung hilft der seitlichen Hüftstabilität, was bei Kicks und Standbein-Kontrolle später wichtig wird."
+      },
+      {
+        name: "Standing March Hold",
+        area: "Hüftbeuger / Core / Balance",
+        frequency: "3x pro Woche",
+        sets: "3 Sätze pro Seite",
+        reps: "10–15 Sekunden halten",
+        intensity: "Leicht",
+        execution:
+          "Stehe aufrecht. Hebe ein Knie bis maximal Hüfthöhe oder darunter, wenn es zieht. Halte die Position ruhig. Becken bleibt gerade, Bauch leicht aktiv.",
+        notes:
+          "Das ist eine vorsichtige Steigerung vom isometrischen Hüftbeuger-Hold. Kein Schwung, kein hohes Bein."
+      },
+      {
+        name: "Dead Bug erweitert",
+        area: "Core / Hüftkontrolle",
+        frequency: "3–4x pro Woche",
+        sets: "3 Sätze",
+        reps: "8–10 Wiederholungen pro Seite",
+        intensity: "Leicht bis moderat",
+        execution:
+          "Wie Dead Bug aus Woche 1, aber etwas kontrollierter und mit minimal größerem Bewegungsradius, nur wenn schmerzfrei.",
+        notes:
+          "Bewegungsradius nur erhöhen, wenn die Leiste ruhig bleibt."
       }
     ],
-    avoid: [
-      "Kein Spagat-Test",
-      "Keine hohen Kicks zum Prüfen",
-      "Keine explosive Technik",
-      "Keine Übung mit Schmerz über 3/10"
+    weeklyNotes: [
+      "Woche 2 ist noch kein Return-to-Tricking.",
+      "Du baust Belastbarkeit auf, ohne die alte Reizung direkt wieder zu triggern.",
+      "Wenn alles ruhig bleibt, kann danach langsam sportartspezifischer gearbeitet werden."
+    ]
+  },
+
+  {
+    phase: "Phase 3",
+    title: "Woche 3–4 – Vorbereitung auf Technik",
+    duration: "2 Wochen",
+    status: "Nur wenn Phase 1 und 2 gut vertragen wurden",
+    goal:
+      "Die Hüfte auf kontrollierte sportlichere Bewegungen vorbereiten, aber weiterhin ohne volle Kicks oder Spagat-Endposition.",
+    description:
+      "Diese Phase ist der Übergang von Reha zu kontrollierter Sportvorbereitung. Es wird etwas dynamischer, aber noch nicht maximal.",
+    rules: [
+      "Nur starten, wenn Alltag und Phase-2-Übungen weitgehend ruhig sind",
+      "Keine maximale Range of Motion",
+      "Keine explosiven High Kicks",
+      "Langsam steigern",
+      "Nach jeder Einheit Folgetag beobachten"
     ],
-    notes: [
-      "Heute sammelst du Infos für deinen Orthopäden.",
-      "Merke dir: Welche Übungen gingen gut? Welche haben gereizt?",
-      "Wichtig: Nicht testen, ob Spagat oder Kicks schon wieder gehen."
+    avoid: [
+      "Volle seitliche Kicks",
+      "Maximaler Spagat",
+      "Tricking-Kombos",
+      "Explosive Rotationskicks",
+      "Springen mit harter Landung",
+      "Dehnen mit Partnerdruck"
+    ],
+    exercises: [
+      {
+        name: "Step Back Lunge klein",
+        area: "Beine / Hüftkontrolle",
+        frequency: "3x pro Woche",
+        sets: "2–3 Sätze pro Seite",
+        reps: "6–8 Wiederholungen",
+        intensity: "Leicht",
+        execution:
+          "Mache einen kleinen Schritt nach hinten. Senke dich nur leicht ab. Oberkörper bleibt aufrecht, Becken stabil. Nicht tief gehen.",
+        notes:
+          "Kein tiefer Ausfallschritt. Die vordere Hüfte darf nicht ziehen."
+      },
+      {
+        name: "Standing Hip Flexion langsam",
+        area: "Hüftbeuger kontrolliert",
+        frequency: "3x pro Woche",
+        sets: "3 Sätze pro Seite",
+        reps: "8 langsame Wiederholungen",
+        intensity: "Leicht",
+        execution:
+          "Stehe aufrecht und hebe das Knie langsam nach oben, nur bis zur schmerzfreien Höhe. Langsam wieder absenken. Kein Schwung.",
+        notes:
+          "Das ist noch kein Kick. Es ist kontrolliertes Beinheben."
+      },
+      {
+        name: "Side Step ohne Band",
+        area: "Seitliche Hüfte",
+        frequency: "3x pro Woche",
+        sets: "3 Sätze",
+        reps: "8–10 Schritte je Richtung",
+        intensity: "Leicht",
+        execution:
+          "Gehe in leichter Kniebeuge seitlich kleine Schritte. Becken stabil halten, Schritte klein halten.",
+        notes:
+          "Nur kleine Schritte. Kein tiefes Absinken."
+      },
+      {
+        name: "Single Leg Balance mit Armbewegung",
+        area: "Balance / Hüftstabilität",
+        frequency: "3–4x pro Woche",
+        sets: "3 Sätze pro Seite",
+        reps: "20–30 Sekunden",
+        intensity: "Leicht bis moderat",
+        execution:
+          "Stehe auf einem Bein und bewege die Arme langsam nach vorne, oben oder zur Seite. Becken bleibt stabil.",
+        notes:
+          "Wenn die Hüfte ausweicht oder die Leiste zieht, zurück zur normalen Single Leg Balance."
+      },
+      {
+        name: "Glute Bridge March sehr klein",
+        area: "Gesäß / Core / Hüftkontrolle",
+        frequency: "2–3x pro Woche",
+        sets: "2 Sätze",
+        reps: "6 Wiederholungen pro Seite",
+        intensity: "Leicht bis moderat",
+        execution:
+          "Gehe in die Glute Bridge. Hebe einen Fuß minimal vom Boden ab, halte das Becken stabil und setze ihn wieder ab. Seiten wechseln.",
+        notes:
+          "Nur durchführen, wenn normale Glute Bridge absolut ruhig ist."
+      }
+    ],
+    weeklyNotes: [
+      "Diese Phase ist noch kontrolliert, nicht explosiv.",
+      "Du bereitest die Hüfte auf Technik vor, ohne die Entzündung wieder anzuschieben.",
+      "Wenn Symptome zurückkommen, direkt 1 Phase zurückgehen."
+    ]
+  },
+
+  {
+    phase: "Phase 4",
+    title: "Woche 5+ – Vorsichtiger Return to Tricking",
+    duration: "offen / schrittweise",
+    status: "Nur nach ärztlicher/therapeutischer Freigabe sinnvoll",
+    goal:
+      "Langsam wieder sportartspezifische Bewegungen einbauen, ohne direkt in volle Intensität, volle Kicks oder Spagat zurückzugehen.",
+    description:
+      "Diese Phase ist bewusst vorsichtig formuliert. Sie sollte idealerweise mit deinem Orthopäden oder Physio abgestimmt werden.",
+    rules: [
+      "Nur starten, wenn normale Übungen schmerzfrei oder nahezu schmerzfrei sind",
+      "Technik zuerst langsam und niedrig",
+      "Keine Maximalhöhe",
+      "Keine Maximal-Dehnung",
+      "Pro Einheit nur wenige Wiederholungen testen"
+    ],
+    avoid: [
+      "Direkt volle Kicks",
+      "Direkt volle Tricking-Session",
+      "Spagat erzwingen",
+      "Mehrere neue Belastungen gleichzeitig",
+      "Training trotz Folgetag-Reizung"
+    ],
+    exercises: [
+      {
+        name: "Low Kick Pattern langsam",
+        area: "Technik-Vorbereitung",
+        frequency: "2x pro Woche",
+        sets: "2 Sätze pro Seite",
+        reps: "5 sehr kontrollierte Wiederholungen",
+        intensity: "Sehr leicht",
+        execution:
+          "Führe eine Kick-Bewegung nur niedrig und langsam aus. Keine maximale Höhe. Kein Schwung. Bewegung sofort abbrechen, wenn die Leiste zieht.",
+        notes:
+          "Das ist ein Technik-Test, kein Training."
+      },
+      {
+        name: "Controlled Chamber Hold",
+        area: "Kick-Vorposition / Hüftbeuger",
+        frequency: "2x pro Woche",
+        sets: "2–3 Sätze pro Seite",
+        reps: "5–10 Sekunden halten",
+        intensity: "Leicht",
+        execution:
+          "Gehe langsam in eine niedrige Chamber-Position. Halte kurz stabil. Dann kontrolliert absetzen.",
+        notes:
+          "Nur niedrige Position. Kein Hochziehen in alte Kick-Höhe."
+      },
+      {
+        name: "Partial Split Position",
+        area: "Beweglichkeit vorsichtig",
+        frequency: "2x pro Woche",
+        sets: "2 Durchgänge",
+        reps: "20–30 Sekunden",
+        intensity: "Sehr leicht",
+        execution:
+          "Gehe nur in eine sehr reduzierte Spagat-ähnliche Position. Kein Endrange. Kein Ziehen erzwingen. Du bleibst weit weg vom Schmerzpunkt.",
+        notes:
+          "Diese Übung nur machen, wenn dein Orthopäde oder Physio nichts dagegen hat."
+      },
+      {
+        name: "Return Check: Folgetag-Test",
+        area: "Belastungssteuerung",
+        frequency: "Nach jeder Technik-Einheit",
+        sets: "1 Check",
+        reps: "Am nächsten Morgen bewerten",
+        intensity: "Kontrolle",
+        execution:
+          "Bewerte am nächsten Tag: Ist die Leiste gleich, besser oder schlechter? Wenn schlechter, war die Belastung zu hoch.",
+        notes:
+          "Dieser Check entscheidet, ob du steigern darfst oder zurückgehen musst."
+      }
+    ],
+    weeklyNotes: [
+      "Return to Tricking ist kein einzelner Tag, sondern ein Prozess.",
+      "Wenn du zu früh hochgehst, kann die Reizung schnell zurückkommen.",
+      "Diese Phase solltest du beim Arzttermin unbedingt ansprechen."
     ]
   }
 ];
 
 /* ===================== HILFSFUNKTIONEN ===================== */
 
-function createExerciseId(dayIndex, exerciseIndex) {
-  return `bursitis_reha_${dayIndex}_${exerciseIndex}`;
+function createExerciseId(phaseIndex, exerciseIndex) {
+  return `bursitis_phase_${phaseIndex}_exercise_${exerciseIndex}`;
 }
 
 function getProgress() {
-  const saved = localStorage.getItem("bursitisRehaProgress");
+  const saved = localStorage.getItem("bursitisRehaPhaseProgress");
   return saved ? JSON.parse(saved) : {};
 }
 
 function saveProgress(progress) {
-  localStorage.setItem("bursitisRehaProgress", JSON.stringify(progress));
+  localStorage.setItem("bursitisRehaPhaseProgress", JSON.stringify(progress));
 }
 
 function toggleExercise(id) {
   const progress = getProgress();
   progress[id] = !progress[id];
   saveProgress(progress);
-  renderWeek();
+  renderPhases();
 }
 
 function resetProgress() {
-  const confirmReset = confirm("Möchtest du deinen Reha-Fortschritt wirklich zurücksetzen?");
+  const confirmReset = confirm("Möchtest du deinen gesamten Reha-Fortschritt wirklich zurücksetzen?");
   if (!confirmReset) return;
 
-  localStorage.removeItem("bursitisRehaProgress");
-  renderWeek();
+  localStorage.removeItem("bursitisRehaPhaseProgress");
+  renderPhases();
+}
+
+function calculatePhaseProgress(phase, phaseIndex, progress) {
+  const total = phase.exercises.length;
+
+  const completed = phase.exercises.filter((_, exerciseIndex) => {
+    return progress[createExerciseId(phaseIndex, exerciseIndex)];
+  }).length;
+
+  return {
+    total,
+    completed,
+    percent: total === 0 ? 0 : Math.round((completed / total) * 100)
+  };
 }
 
 /* ===================== RENDER ===================== */
 
 const container = document.getElementById("week");
 
-function renderWeek() {
+function renderPhases() {
   const progress = getProgress();
 
   if (!container) {
@@ -456,32 +464,29 @@ function renderWeek() {
   container.innerHTML = "";
 
   const introDiv = document.createElement("div");
-  introDiv.className = "day";
+  introDiv.className = "day intro-card";
 
   introDiv.innerHTML = `
-    <h2>Reha-Plan: Bursitis Iliopectinea</h2>
+    <h2>🦴 Reha-Übersicht</h2>
     <div class="inner">
       <div class="section">
-        <div class="toggle">⚠️ Schmerzregel <span class="arrow">▶</span></div>
+        <div class="toggle">⚠️ Wichtige Schmerzregel <span class="arrow">▶</span></div>
         <div class="inner">
           <p>
             Während der Übungen maximal <strong>2–3/10 Schmerz</strong>.
-            Kein stechender Leistenschmerz. Wenn die Beschwerden am Folgetag deutlich stärker sind,
-            reduziere Umfang oder pausiere die auslösende Übung.
+            Kein stechender Leistenschmerz. Wenn die Beschwerden am nächsten Tag deutlich stärker sind,
+            war die Belastung zu hoch.
           </p>
         </div>
       </div>
 
       <div class="section">
-        <div class="toggle">🎯 Ziel dieser Woche <span class="arrow">▶</span></div>
+        <div class="toggle">🎯 Aufbau der App <span class="arrow">▶</span></div>
         <div class="inner">
-          <ul>
-            <li>Entzündung beruhigen</li>
-            <li>Hüftbeuger entlasten</li>
-            <li>Gesäß und Core aktivieren</li>
-            <li>Beweglichkeit kontrolliert verbessern</li>
-            <li>Keine Spagat- oder Kick-Belastung erzwingen</li>
-          </ul>
+          <p>
+            Auf der Startseite siehst du die einzelnen Phasen bzw. Wochen.
+            Klicke auf eine Phase, um Ziele, Regeln, Übungen und Bemerkungen zu öffnen.
+          </p>
         </div>
       </div>
 
@@ -493,60 +498,83 @@ function renderWeek() {
 
   container.appendChild(introDiv);
 
-  weekData.forEach((d, dayIndex) => {
-    const completedCount = d.exercises.filter((_, exerciseIndex) => {
-      return progress[createExerciseId(dayIndex, exerciseIndex)];
-    }).length;
+  phaseData.forEach((phase, phaseIndex) => {
+    const phaseProgress = calculatePhaseProgress(phase, phaseIndex, progress);
 
-    const dayDiv = document.createElement("div");
-    dayDiv.className = "day";
+    const phaseDiv = document.createElement("div");
+    phaseDiv.className = "day phase-card";
 
-    dayDiv.innerHTML = `
-      <h2>${d.day} – ${d.focus}</h2>
+    phaseDiv.innerHTML = `
+      <h2>
+        <span>${phase.phase}: ${phase.title}</span>
+        <span class="phase-status">${phaseProgress.completed}/${phaseProgress.total}</span>
+      </h2>
+
       <div class="inner">
 
-        <div class="section">
-          <div class="toggle">📌 Tagesziel <span class="arrow">▶</span></div>
-          <div class="inner">
-            <p>${d.goal}</p>
-            <p><strong>Fortschritt:</strong> ${completedCount}/${d.exercises.length} Übungen erledigt</p>
+        <div class="phase-summary">
+          <p><strong>Dauer:</strong> ${phase.duration}</p>
+          <p><strong>Status:</strong> ${phase.status}</p>
+          <p><strong>Ziel:</strong> ${phase.goal}</p>
+
+          <div class="progress-wrapper">
+            <div class="progress-text">${phaseProgress.percent}% erledigt</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${phaseProgress.percent}%"></div>
+            </div>
           </div>
         </div>
 
         <div class="section">
-          <div class="toggle">🔥 Warm-up <span class="arrow">▶</span></div>
+          <div class="toggle">📌 Beschreibung <span class="arrow">▶</span></div>
+          <div class="inner">
+            <p>${phase.description}</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="toggle">✅ Regeln für diese Phase <span class="arrow">▶</span></div>
           <div class="inner">
             <ul>
-              ${d.warmup.map(item => `<li>${item}</li>`).join("")}
+              ${phase.rules.map(rule => `<li>${rule}</li>`).join("")}
             </ul>
           </div>
         </div>
 
         <div class="section">
-          <div class="toggle">✅ Übungen des Tages <span class="arrow">▶</span></div>
+          <div class="toggle">🏋️ Übungen inkl. Bemerkungen <span class="arrow">▶</span></div>
           <div class="inner">
             ${
-              d.exercises.length
-                ? d.exercises.map((e, exerciseIndex) => {
-                    const id = createExerciseId(dayIndex, exerciseIndex);
+              phase.exercises.length
+                ? phase.exercises.map((exercise, exerciseIndex) => {
+                    const id = createExerciseId(phaseIndex, exerciseIndex);
                     const checked = progress[id] ? "checked" : "";
 
                     return `
-                      <div class="toggle">
-                        <label>
-                          <input type="checkbox" class="exercise-check" data-id="${id}" ${checked}>
-                          ${e.name}
-                        </label>
-                        <span class="arrow">▶</span>
-                      </div>
+                      <div class="exercise-card">
+                        <div class="toggle exercise-toggle">
+                          <label class="exercise-label">
+                            <input type="checkbox" class="exercise-check" data-id="${id}" ${checked}>
+                            <span>${exercise.name}</span>
+                          </label>
+                          <span class="arrow">▶</span>
+                        </div>
 
-                      <div class="inner">
-                        <strong>Bereich:</strong> ${e.area}<br>
-                        <strong>Sätze:</strong> ${e.sets}<br>
-                        <strong>Dauer/Wiederholungen:</strong> ${e.reps}<br>
-                        <strong>Intensität:</strong> ${e.intensity}<br>
-                        <strong>Ausführung:</strong>
-                        <p>${e.execution}</p>
+                        <div class="inner">
+                          <div class="exercise-grid">
+                            <p><strong>Bereich:</strong> ${exercise.area}</p>
+                            <p><strong>Häufigkeit:</strong> ${exercise.frequency}</p>
+                            <p><strong>Sätze:</strong> ${exercise.sets}</p>
+                            <p><strong>Dauer/Wdh.:</strong> ${exercise.reps}</p>
+                            <p><strong>Intensität:</strong> ${exercise.intensity}</p>
+                          </div>
+
+                          <p><strong>Ausführung:</strong></p>
+                          <p>${exercise.execution}</p>
+
+                          <p><strong>Bemerkung:</strong></p>
+                          <p>${exercise.notes}</p>
+                        </div>
                       </div>
                     `;
                   }).join("")
@@ -556,19 +584,19 @@ function renderWeek() {
         </div>
 
         <div class="section">
-          <div class="toggle">❌ Heute vermeiden <span class="arrow">▶</span></div>
+          <div class="toggle">❌ In dieser Phase vermeiden <span class="arrow">▶</span></div>
           <div class="inner">
             <ul>
-              ${d.avoid.map(item => `<li>${item}</li>`).join("")}
+              ${phase.avoid.map(item => `<li>${item}</li>`).join("")}
             </ul>
           </div>
         </div>
 
         <div class="section">
-          <div class="toggle">📝 Hinweise <span class="arrow">▶</span></div>
+          <div class="toggle">📝 Wochen-/Phasenhinweise <span class="arrow">▶</span></div>
           <div class="inner">
             <ul>
-              ${d.notes.map(item => `<li>${item}</li>`).join("")}
+              ${phase.weeklyNotes.map(note => `<li>${note}</li>`).join("")}
             </ul>
           </div>
         </div>
@@ -576,7 +604,7 @@ function renderWeek() {
       </div>
     `;
 
-    container.appendChild(dayDiv);
+    container.appendChild(phaseDiv);
   });
 
   initToggles();
@@ -590,6 +618,7 @@ function initToggles() {
   document.querySelectorAll(".day h2").forEach(h => {
     h.onclick = () => {
       const inner = h.nextElementSibling;
+
       if (inner) {
         inner.style.display = inner.style.display === "block" ? "none" : "block";
       }
@@ -598,13 +627,18 @@ function initToggles() {
 
   document.querySelectorAll(".toggle").forEach(t => {
     t.onclick = event => {
-      if (event.target.tagName === "INPUT" || event.target.tagName === "LABEL") {
+      if (
+        event.target.tagName === "INPUT" ||
+        event.target.tagName === "LABEL" ||
+        event.target.closest("label")
+      ) {
         return;
       }
 
       t.classList.toggle("open");
 
       const inner = t.nextElementSibling;
+
       if (inner) {
         inner.style.display = inner.style.display === "block" ? "none" : "block";
       }
@@ -639,4 +673,4 @@ function initResetButton() {
 
 /* ===================== START ===================== */
 
-renderWeek();
+renderPhases();
