@@ -1,3 +1,5 @@
+/* ===================== GLOBAL ===================== */
+
 body {
     font-family: Arial, sans-serif;
     background: #0f0f0f;
@@ -6,58 +8,77 @@ body {
     line-height: 1.5;
 }
 
-/* ===================== HEADER ===================== */
-
 h1 {
     text-align: center;
     color: #6cffb0;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    font-size: 2rem;
 }
 
-/* ===================== INTRO ===================== */
-
-.intro {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 15px;
-    font-size: 1em;
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-.intro strong {
-    color: #ffcc66;
-}
-
-.intro ul {
-    margin-top: 8px;
-    padding-left: 20px;
-}
-
-/* ===================== DAY CARDS ===================== */
+/* ===================== CARDS ===================== */
 
 .day {
     border: 1px solid #333;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 10px;
     margin-bottom: 14px;
     background: #141414;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Tag Titel */
+.intro-card {
+    border-color: #6cffb0;
+}
+
+.phase-card {
+    border-color: #2f2f2f;
+}
+
 .day h2 {
     cursor: pointer;
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px;
+    gap: 12px;
+    padding: 10px;
     font-size: 1.15em;
+    color: #ffffff;
 }
 
 .day h2:hover {
     background: #1d1d1d;
-    border-radius: 6px;
+    border-radius: 8px;
+}
+
+.phase-status {
+    background: #6cffb0;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+/* ===================== PHASE SUMMARY ===================== */
+
+.phase-summary {
+    background: #111;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.phase-summary strong {
+    color: #6cffb0;
 }
 
 /* ===================== SECTIONS ===================== */
@@ -66,34 +87,32 @@ h1 {
     margin-top: 10px;
 }
 
-/* Toggle Header */
 .toggle {
     cursor: pointer;
-    padding: 8px;
+    padding: 9px;
     background: #1f1f1f;
-    border-radius: 6px;
-    margin-top: 6px;
+    border-radius: 8px;
+    margin-top: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1em;
+    border: 1px solid #2b2b2b;
 }
 
 .toggle:hover {
-    background: #2a2a2a;
+    background: #292929;
 }
 
-/* Inhalt */
 .inner {
     display: none;
-    padding: 10px;
+    padding: 11px;
     background: #181818;
-    border-radius: 6px;
-    margin-top: 5px;
+    border-radius: 8px;
+    margin-top: 6px;
     font-size: 0.98em;
+    border: 1px solid #252525;
 }
-
-/* ===================== TEXT STYLING ===================== */
 
 .inner strong {
     color: #6cffb0;
@@ -104,19 +123,90 @@ h1 {
 }
 
 .inner li {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
-/* Übungen hervorheben */
+/* ===================== EXERCISES ===================== */
+
+.exercise-card {
+    border: 1px solid #2d2d2d;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: #121212;
+    overflow: hidden;
+}
+
+.exercise-toggle {
+    margin-top: 0;
+    border-radius: 0;
+    background: #202020;
+}
+
+.exercise-toggle:hover {
+    background: #2b2b2b;
+}
+
+.exercise-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
 .exercise-check {
-    margin-right: 8px;
-    transform: scale(1.2);
+    transform: scale(1.25);
+    cursor: pointer;
+    accent-color: #6cffb0;
+}
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.exercise-grid p {
+    background: #101010;
+    border: 1px solid #282828;
+    padding: 8px;
+    border-radius: 6px;
+    margin: 0;
+}
+
+/* ===================== PROGRESS ===================== */
+
+.progress-wrapper {
+    margin-top: 12px;
+}
+
+.progress-text {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #292929;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6cffb0, #26d982);
+    border-radius: 999px;
+    transition: width 0.25s ease;
 }
 
 /* ===================== ARROW ===================== */
 
 .arrow {
     transition: transform 0.2s;
+    color: #6cffb0;
 }
 
 .open .arrow {
@@ -129,8 +219,8 @@ button {
     background: #6cffb0;
     color: #000;
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 9px 14px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     margin-top: 8px;
@@ -140,28 +230,41 @@ button:hover {
     background: #4de89a;
 }
 
-/* ===================== MOBILE OPTIMIERUNG ===================== */
+/* ===================== MOBILE ===================== */
 
 @media (max-width: 600px) {
-
     body {
         padding: 10px;
     }
 
     h1 {
-        font-size: 1.4em;
+        font-size: 1.45em;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
     }
 
     .day h2 {
-        font-size: 1.05em;
+        font-size: 1em;
+        align-items: flex-start;
     }
 
     .toggle {
         font-size: 0.95em;
-        padding: 7px;
+        padding: 8px;
     }
 
     .inner {
         font-size: 0.95em;
+        padding: 9px;
+    }
+
+    .phase-status {
+        font-size: 0.75em;
+    }
+
+    .exercise-grid {
+        grid-template-columns: 1fr;
     }
 }
