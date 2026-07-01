@@ -3,49 +3,117 @@ body {
     background: #0f0f0f;
     color: #eee;
     padding: 15px;
+    line-height: 1.5;
 }
+
+/* ===================== HEADER ===================== */
 
 h1 {
     text-align: center;
     color: #6cffb0;
+    margin-bottom: 15px;
 }
+
+/* ===================== INTRO ===================== */
+
+.intro {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.intro strong {
+    color: #ffcc66;
+}
+
+.intro ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+/* ===================== DAY CARDS ===================== */
 
 .day {
     border: 1px solid #333;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    background: #141414;
 }
 
+/* Tag Titel */
 .day h2 {
     cursor: pointer;
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    font-size: 1.15em;
 }
+
+.day h2:hover {
+    background: #1d1d1d;
+    border-radius: 6px;
+}
+
+/* ===================== SECTIONS ===================== */
 
 .section {
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
+/* Toggle Header */
 .toggle {
     cursor: pointer;
-    padding: 6px;
-    background: #1a1a1a;
-    border-radius: 4px;
-    margin-top: 5px;
+    padding: 8px;
+    background: #1f1f1f;
+    border-radius: 6px;
+    margin-top: 6px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
 }
 
+.toggle:hover {
+    background: #2a2a2a;
+}
+
+/* Inhalt */
 .inner {
     display: none;
-    padding: 8px;
-    background: #151515;
-    border-radius: 4px;
-    margin-top: 4px;
-    font-size: 0.95em;
+    padding: 10px;
+    background: #181818;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 0.98em;
 }
+
+/* ===================== TEXT STYLING ===================== */
+
+.inner strong {
+    color: #6cffb0;
+}
+
+.inner ul {
+    padding-left: 20px;
+}
+
+.inner li {
+    margin-bottom: 4px;
+}
+
+/* Übungen hervorheben */
+.exercise-check {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+/* ===================== ARROW ===================== */
 
 .arrow {
     transition: transform 0.2s;
@@ -53,4 +121,47 @@ h1 {
 
 .open .arrow {
     transform: rotate(90deg);
+}
+
+/* ===================== BUTTON ===================== */
+
+button {
+    background: #6cffb0;
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+button:hover {
+    background: #4de89a;
+}
+
+/* ===================== MOBILE OPTIMIERUNG ===================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+
+    .day h2 {
+        font-size: 1.05em;
+    }
+
+    .toggle {
+        font-size: 0.95em;
+        padding: 7px;
+    }
+
+    .inner {
+        font-size: 0.95em;
+    }
 }
