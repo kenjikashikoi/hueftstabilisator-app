@@ -10,15 +10,15 @@
 
     <meta
         name="description"
-        content="Fortgeschrittener Plan für Hüftstabilität, aktive Rotation und einen kontrollierten Wiedereinstieg in Side Kicks."
+        content="Tricking-Trainingsplan für Hüfte, Beweglichkeit, Kraft und vertikale Sprungkraft."
     >
 
     <meta
         name="theme-color"
-        content="#0f0f0f"
+        content="#070b09"
     >
 
-    <title>Fortgeschrittener Hüftplan</title>
+    <title>Tricking Trainingsplan</title>
 
     <link
         rel="stylesheet"
@@ -37,93 +37,196 @@
         </a>
 
         <div>
-            <p class="eyebrow">Aktive Kontrolle statt aggressives Dehnen</p>
+            <p class="eyebrow">
+                Road to World Championship
+            </p>
 
-            <h1>Fortgeschrittener Hüftplan</h1>
+            <h1>Tricking Trainingsplan</h1>
 
             <p class="subtitle">
-                Aufbauplan für Hüftstabilität, Rotation, Adduktorenkraft
-                und kontrollierte Side-Kick-Belastung.
+                Hüftaufbau, aktive Beweglichkeit, Maximalkraft,
+                beidbeinige und einbeinige Explosivität.
             </p>
         </div>
     </header>
 
     <main class="app-container">
-        <section class="plan-introduction">
-            <div class="introduction-grid">
-                <article class="introduction-item">
-                    <span class="introduction-icon" aria-hidden="true">🎯</span>
+        <section class="control-panel">
+            <div class="control-heading">
+                <div>
+                    <p class="eyebrow">
+                        Aktuelle Trainingsansicht
+                    </p>
 
-                    <div>
-                        <h2>Ziel des Plans</h2>
+                    <h2>Trainingsbereiche</h2>
+                </div>
 
-                        <p>
-                            Die Hüfte in kontrollierten Bewegungsbereichen
-                            kräftigen und die Belastbarkeit beim Strecken
-                            des Beins im Side Kick verbessern.
-                        </p>
-                    </div>
-                </article>
+                <span
+                    id="overallPercentage"
+                    class="percentage-badge"
+                >
+                    0 %
+                </span>
+            </div>
 
-                <article class="introduction-item">
-                    <span class="introduction-icon" aria-hidden="true">⚠️</span>
+            <div class="progress-information">
+                <span id="progressText">
+                    0 von 0 Übungen erledigt
+                </span>
 
-                    <div>
-                        <h2>Schmerzregel</h2>
+                <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="overallProgressBar"
+                >
+                    <div
+                        id="overallProgressFill"
+                        class="progress-fill"
+                    ></div>
+                </div>
+            </div>
 
-                        <p>
-                            Leichte muskuläre Anstrengung ist in Ordnung.
-                            Stechender oder tiefer Schmerz ist ein Stoppsignal.
-                            Die Beschwerden sollten am nächsten Morgen nicht
-                            stärker als vor dem Training sein.
-                        </p>
-                    </div>
-                </article>
+            <div class="filter-buttons" aria-label="Trainingsfilter">
+                <button
+                    class="filter-button active"
+                    type="button"
+                    data-filter="all"
+                >
+                    Alle
+                </button>
 
-                <article class="introduction-item">
-                    <span class="introduction-icon" aria-hidden="true">❌</span>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-filter="hip"
+                >
+                    Hüfte
+                </button>
 
-                    <div>
-                        <h2>Aktuell vermeiden</h2>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-filter="mobility"
+                >
+                    Range
+                </button>
 
-                        <p>
-                            Erzwungene 90/90-Endpositionen, heruntergedrückte
-                            Figure-4-Positionen, maximalen Spagat und Side Kicks
-                            durch den bekannten stechenden Schmerz.
-                        </p>
-                    </div>
-                </article>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-filter="strength"
+                >
+                    Kraft
+                </button>
 
-                <article class="introduction-item">
-                    <span class="introduction-icon" aria-hidden="true">⏱️</span>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-filter="power"
+                >
+                    Sprungkraft
+                </button>
 
-                    <div>
-                        <h2>Trainingsdauer</h2>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-filter="tricking"
+                >
+                    Tricking
+                </button>
+            </div>
 
-                        <p>
-                            Je nach Phase ungefähr 25 bis 40 Minuten.
-                            Zwischen anspruchsvollen Einheiten mindestens
-                            einen Erholungstag einplanen.
-                        </p>
-                    </div>
-                </article>
+            <div class="control-actions">
+                <button
+                    id="openAllButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Alle öffnen
+                </button>
+
+                <button
+                    id="closeAllButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Alle schließen
+                </button>
+
+                <button
+                    id="resetButton"
+                    class="danger-button"
+                    type="button"
+                >
+                    Fortschritt zurücksetzen
+                </button>
             </div>
         </section>
 
+        <section class="training-rules">
+            <article class="rule-card">
+                <span aria-hidden="true">⚡</span>
+
+                <div>
+                    <h2>Explosivregel</h2>
+
+                    <p>
+                        Sprungübungen beenden, sobald Höhe,
+                        Geschwindigkeit oder Landekontrolle deutlich
+                        schlechter werden.
+                    </p>
+                </div>
+            </article>
+
+            <article class="rule-card">
+                <span aria-hidden="true">🦴</span>
+
+                <div>
+                    <h2>Schmerzregel</h2>
+
+                    <p>
+                        Kein Training durch stechenden oder tiefen
+                        Hüftschmerz. Der Folgetag darf nicht deutlich
+                        schlechter sein.
+                    </p>
+                </div>
+            </article>
+
+            <article class="rule-card">
+                <span aria-hidden="true">📈</span>
+
+                <div>
+                    <h2>Progressionsregel</h2>
+
+                    <p>
+                        Pro Woche nur eine Variable deutlich erhöhen:
+                        Gewicht, Range, Wiederholungen, Sprunghöhe
+                        oder Geschwindigkeit.
+                    </p>
+                </div>
+            </article>
+        </section>
+
         <section
-            id="week"
+            id="trainingApp"
+            class="training-sections"
             aria-live="polite"
         >
             <noscript>
                 <div class="warning-card">
-                    <div class="warning-icon" aria-hidden="true">⚠️</div>
+                    <div class="warning-icon" aria-hidden="true">
+                        ⚠️
+                    </div>
 
                     <div>
                         <h2>JavaScript ist deaktiviert</h2>
 
                         <p>
-                            Für die Anzeige des Trainingsplans muss JavaScript
-                            im Browser aktiviert sein.
+                            Aktiviere JavaScript, damit der Trainingsplan
+                            angezeigt werden kann.
                         </p>
                     </div>
                 </div>
@@ -133,8 +236,8 @@
 
     <footer class="app-footer">
         <p>
-            Dieser Plan ersetzt keine ärztliche oder physiotherapeutische
-            Untersuchung.
+            Qualität vor Erschöpfung. Anpassung vor Schmerz.
+            Kontinuität vor einem einzelnen maximalen Trainingstag.
         </p>
     </footer>
 
