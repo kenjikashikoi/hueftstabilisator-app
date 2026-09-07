@@ -10,86 +10,131 @@
 
     <meta
         name="description"
-        content="Tricking-Trainingsplan für Hüfte, Beweglichkeit, Kraft und vertikale Sprungkraft."
+        content="Tricking Performance Trainingsplan"
     >
 
-    <meta
-        name="theme-color"
-        content="#070b09"
-    >
+    <title>Trainingsplan · Tricking Performance</title>
 
-    <title>Tricking Trainingsplan</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="app-header compact-header">
-        <a
-            class="back-link"
-            href="index.html"
-            aria-label="Zurück zur Startseite"
-        >
-            ←
+
+<header class="app-header">
+
+    <div class="app-header-content">
+
+        <a href="index.html" class="back-link">
+            ← Startseite
         </a>
 
         <div>
-            <p class="eyebrow">
-                Road to World Championship
-            </p>
-
-            <h1>Tricking Trainingsplan</h1>
-
-            <p class="subtitle">
-                Hüftaufbau, aktive Beweglichkeit, Maximalkraft,
-                beidbeinige und einbeinige Explosivität.
-            </p>
+            <p class="eyebrow">ROAD TO WORLD CHAMPIONSHIP</p>
+            <h1>Trainingsplan</h1>
         </div>
-    </header>
 
-    <main class="app-container">
-        <section class="control-panel">
-            <div class="control-heading">
+    </div>
+
+</header>
+
+<main class="app-container">
+
+    <!-- WOCHENPLAN -->
+
+    <section class="weekly-plan">
+
+        <div class="weekly-plan-heading">
+
+            <div>
+                <p class="eyebrow">
+                    DEINE TRAININGSWOCHE
+                </p>
+
+                <h2>Was steht heute an?</h2>
+
+                <p class="weekly-plan-description">
+                    Wähle einen Tag aus, um direkt zu den
+                    passenden Übungen zu springen.
+                </p>
+            </div>
+
+            <span
+                id="todayLabel"
+                class="today-badge"
+            >
+                Heute
+            </span>
+
+        </div>
+
+        <div
+            id="weeklySchedule"
+            class="weekly-schedule"
+            aria-label="Wochenplan"
+        ></div>
+
+    </section>
+
+
+    <!-- HEUTIGES TRAINING -->
+
+    <section
+        id="todayWorkout"
+        class="today-workout"
+    ></section>
+
+
+    <!-- FORTSCHRITT -->
+
+    <section class="control-panel">
+
+        <div class="progress-overview">
+
+            <div class="progress-header">
+
                 <div>
                     <p class="eyebrow">
-                        Aktuelle Trainingsansicht
+                        GESAMTFORTSCHRITT
                     </p>
 
-                    <h2>Trainingsbereiche</h2>
+                    <h2 id="progressPercentage">
+                        0%
+                    </h2>
                 </div>
 
-                <span
-                    id="overallPercentage"
-                    class="percentage-badge"
-                >
-                    0 %
-                </span>
+                <p id="progressText">
+                    0 von 0 Übungen abgeschlossen
+                </p>
+
             </div>
 
-            <div class="progress-information">
-                <span id="progressText">
-                    0 von 0 Übungen erledigt
-                </span>
-
+            <div
+                class="progress-bar"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-label="Trainingsfortschritt"
+            >
                 <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    id="overallProgressBar"
-                >
-                    <div
-                        id="overallProgressFill"
-                        class="progress-fill"
-                    ></div>
-                </div>
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
             </div>
 
-            <div class="filter-buttons" aria-label="Trainingsfilter">
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filter-area">
+
+            <p class="control-label">
+                Bereiche
+            </p>
+
+            <div class="filter-buttons">
+
                 <button
                     class="filter-button active"
                     type="button"
@@ -103,7 +148,7 @@
                     type="button"
                     data-filter="hip"
                 >
-                    Hüfte
+                    🦴 Hüfte
                 </button>
 
                 <button
@@ -111,7 +156,7 @@
                     type="button"
                     data-filter="mobility"
                 >
-                    Range
+                    🧘 Mobility
                 </button>
 
                 <button
@@ -119,7 +164,7 @@
                     type="button"
                     data-filter="strength"
                 >
-                    Kraft
+                    🏋️ Kraft
                 </button>
 
                 <button
@@ -127,7 +172,7 @@
                     type="button"
                     data-filter="power"
                 >
-                    Sprungkraft
+                    🚀 Sprungkraft
                 </button>
 
                 <button
@@ -135,112 +180,139 @@
                     type="button"
                     data-filter="tricking"
                 >
-                    Tricking
+                    🤸 Tricking
                 </button>
+
             </div>
 
-            <div class="control-actions">
-                <button
-                    id="openAllButton"
-                    class="secondary-button"
-                    type="button"
-                >
-                    Alle öffnen
-                </button>
+        </div>
 
-                <button
-                    id="closeAllButton"
-                    class="secondary-button"
-                    type="button"
-                >
-                    Alle schließen
-                </button>
 
-                <button
-                    id="resetButton"
-                    class="danger-button"
-                    type="button"
-                >
-                    Fortschritt zurücksetzen
-                </button>
-            </div>
-        </section>
+        <!-- STEUERUNG -->
 
-        <section class="training-rules">
-            <article class="rule-card">
-                <span aria-hidden="true">⚡</span>
+        <div class="control-buttons">
 
-                <div>
-                    <h2>Explosivregel</h2>
+            <button
+                id="openAllButton"
+                class="secondary-button"
+                type="button"
+            >
+                Alle öffnen
+            </button>
 
-                    <p>
-                        Sprungübungen beenden, sobald Höhe,
-                        Geschwindigkeit oder Landekontrolle deutlich
-                        schlechter werden.
-                    </p>
-                </div>
-            </article>
+            <button
+                id="closeAllButton"
+                class="secondary-button"
+                type="button"
+            >
+                Alle schließen
+            </button>
 
-            <article class="rule-card">
-                <span aria-hidden="true">🦴</span>
+            <button
+                id="resetButton"
+                class="danger-button"
+                type="button"
+            >
+                Fortschritt zurücksetzen
+            </button>
 
-                <div>
-                    <h2>Schmerzregel</h2>
+        </div>
 
-                    <p>
-                        Kein Training durch stechenden oder tiefen
-                        Hüftschmerz. Der Folgetag darf nicht deutlich
-                        schlechter sein.
-                    </p>
-                </div>
-            </article>
+    </section>
+
+
+    <!-- TRAININGSREGELN -->
+
+    <section class="training-rules">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                TRAININGSREGELN
+            </p>
+
+            <h2>Qualität vor Quantität</h2>
+
+        </div>
+
+        <div class="rules-grid">
 
             <article class="rule-card">
-                <span aria-hidden="true">📈</span>
 
-                <div>
-                    <h2>Progressionsregel</h2>
-
-                    <p>
-                        Pro Woche nur eine Variable deutlich erhöhen:
-                        Gewicht, Range, Wiederholungen, Sprunghöhe
-                        oder Geschwindigkeit.
-                    </p>
+                <div class="rule-icon">
+                    🚀
                 </div>
+
+                <h3>Explosivregel</h3>
+
+                <p>
+                    Bei Sprüngen und explosiven Übungen
+                    zählt die Qualität jeder Wiederholung.
+                    Wenn Höhe oder Explosivität deutlich
+                    nachlassen, Satz beenden.
+                </p>
+
             </article>
-        </section>
 
-        <section
-            id="trainingApp"
-            class="training-sections"
-            aria-live="polite"
-        >
-            <noscript>
-                <div class="warning-card">
-                    <div class="warning-icon" aria-hidden="true">
-                        ⚠️
-                    </div>
 
-                    <div>
-                        <h2>JavaScript ist deaktiviert</h2>
+            <article class="rule-card">
 
-                        <p>
-                            Aktiviere JavaScript, damit der Trainingsplan
-                            angezeigt werden kann.
-                        </p>
-                    </div>
+                <div class="rule-icon">
+                    ⚠️
                 </div>
-            </noscript>
-        </section>
-    </main>
 
-    <footer class="app-footer">
-        <p>
-            Qualität vor Erschöpfung. Anpassung vor Schmerz.
-            Kontinuität vor einem einzelnen maximalen Trainingstag.
-        </p>
-    </footer>
+                <h3>Schmerzregel</h3>
 
-    <script src="script.js"></script>
+                <p>
+                    Kein scharfer oder zunehmender
+                    Gelenkschmerz. Bei Beschwerden
+                    Belastung reduzieren und Ursache
+                    professionell abklären lassen.
+                </p>
+
+            </article>
+
+
+            <article class="rule-card">
+
+                <div class="rule-icon">
+                    📈
+                </div>
+
+                <h3>Progressionsregel</h3>
+
+                <p>
+                    Erst saubere Technik und Kontrolle
+                    erreichen. Danach Gewicht, Wiederholungen
+                    oder Schwierigkeit langsam steigern.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ÜBUNGEN -->
+
+    <section
+        id="trainingApp"
+        class="training-sections"
+        aria-live="polite"
+    ></section>
+
+</main>
+
+<footer class="site-footer">
+
+    <p>
+        Tricking Performance · Road to World Championship
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
